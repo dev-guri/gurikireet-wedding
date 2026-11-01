@@ -1,0 +1,10 @@
+{
+  "tool": "Built-in image_gen",
+  "reference": "jaggo-ink.png for standalone wardrobe figures; mehndi-ink.png for matching-orange edit",
+  "prompts": [
+    {
+      "id": "mehndi-orange",
+      "prompt": "Use case: precise-object-edit. Edit target: mehndi-ink.png. Change ONLY THE MAN'S FOREST GREEN KURTA fabric color to the SAME TANGERINE ORANGE as the woman's existing orange sharara. Keep the embroidery as fine WHITE details. Preserve EVERYTHING else EXACTLY: same faces, same solid black hair and beard, same black ink linework, same pose, same character proportions, same canvas dimensions and placement, same woman and her exact existing orange clothes, same white trousers, same black mojari, pure white background. Entire head-to-shoes visible unchanged. No text. Both man and woman now wear MATCHING ORANGE traditional outfits. Do not redraw the faces or change silhouettes."
+    }
+  ]
+}

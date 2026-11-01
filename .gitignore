@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.next-dev/
+out/
+.env*
+*.tsbuildinfo
+.DS_Store
+.yarn/cache/
+.yarn/install-state.gz
+.pnp.*

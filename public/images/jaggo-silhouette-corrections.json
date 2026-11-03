@@ -1,0 +1,17 @@
+{
+  "tool": "Built-in image_gen",
+  "reference": "Existing Jaggo figures; face, hair, pose and upper garment preserved",
+  "silhouetteReference": "https://www.azafashions.com/blog/what-is-a-gharara-everything-you-need-to-know/?noamp=mobile",
+  "briefs": [
+    {
+      "id": "sharara-v2",
+      "input": "/Users/gurindersingh/Desktop/wedding/public/images/jaggo-her-sharara.png",
+      "prompt": "Use case: precise-object-edit. Asset: a Jaggo wardrobe illustration. Preserve the EXACT same woman's face, black wavy hair, cheerful gaze to the left, head position, hand-clasped pose, body proportions, rose-pink kameez and dupatta, black mojari, ink cartoon drawing style, pure white background and original tall canvas framing. Full head and shoes MUST remain visible at same positions. Do NOT add text or other people. Change ONLY the PANTS BELOW THE KAMEEZ. CORRECT SHARARA: replace the existing fitted thigh/knee-banded trousers with TWO WIDE FLOWING TROUSER LEGS that flare smoothly and continuously from the UPPER THIGH/HIP into broad hems. The pants should already be LOOSE AND WIDE where they emerge from under the kameez. Long continuous elegant vertical folds from thigh to hem. ABSOLUTELY NO HORIZONTAL BAND OR SEAM OR GATHERING AT THE KNEE, no fitted knee, no visible knee joint, no abrupt flare, no ruffle tiers. Keep embroidery only at bottom hem and scattered small motifs on the legs. Clear white gap between the two separate legs. Two sweeping A-line trouser panels, not one skirt. Same rose-pink color as original. This smooth continuous wide-leg silhouette must be visibly unlike a knee-jointed garara."
+    },
+    {
+      "id": "garara-v2",
+      "input": "/Users/gurindersingh/Desktop/wedding/public/images/jaggo-her-garara.png",
+      "prompt": "Use case: precise-object-edit. Asset: a Jaggo wardrobe illustration. Preserve the EXACT same woman's face, black wavy hair, cheerful gaze to the left, head position, hand-clasped pose, body proportions, rose-pink kameez and dupatta, black mojari, ink cartoon drawing style, pure white background and original tall canvas framing. Full head and shoes MUST remain visible at same positions. Do NOT add text or other people. Change ONLY the PANTS BELOW THE KAMEEZ. DISTINCT TRADITIONAL GARARA: TWO CLOSE-FITTING UPPER TROUSER LEGS from hips to just above knee; add a VERY CLEAR 2-inch-wide GOLD GOTA BAND around EACH KNEE with a visible horizontal seam. Immediately BELOW each knee band, the fabric bursts into VERY FULL, DENSELY GATHERED, RUFFLED bell-shaped lower legs. Show many vertical gathers attached to the knee seam and two additional soft ruffled tiers on each lower leg for an unmistakably gathered silhouette. Keep TWO CLEARLY SEPARATE trouser legs and a generous white gap; NOT a skirt. Fitted thigh then SUDDEN dramatic gathered flare at each knee, rather than continuous wide-leg pants. Rose-pink fabric, white embroidery and gold knee bands. Keep black mojari visible. The gold knee joint and tiered lower-leg volume must be visually obvious at small website size."
+    }
+  ]
+}

@@ -28,7 +28,7 @@ export const jaggoOutfits = {
   ],
   her: [
     { id: 'patiala-suit', label: 'Patiala Suit', image: '/images/jaggo-her-patiala.png' },
-    { id: 'sharara', label: 'Sharara', image: '/images/jaggo-her-sharara.png' },
-    { id: 'garara', label: 'Garara', image: '/images/jaggo-her-garara.png' },
+    { id: 'sharara', label: 'Sharara', image: '/images/jaggo-her-sharara-v2.png' },
+    { id: 'garara', label: 'Garara', image: '/images/jaggo-her-garara-v2.png' },
   ],
 };

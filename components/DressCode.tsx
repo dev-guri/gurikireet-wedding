@@ -4,6 +4,7 @@ import DoodleHeart from './DoodleHeart';
 import CoupleArt from './CoupleArt';
 import JaggoArt from './JaggoArt';
 import Hashtag from './Hashtag';
+import ShadePicker from './ShadePicker';
 import { functions, jaggoOutfits, type WeddingFunction } from '@/lib/constants';
 
 const notes: Record<string, string[]> = {
@@ -22,7 +23,7 @@ function OutfitCard({ event }: { event: WeddingFunction }) {
     <div className="card-heading"><span className="event-number">{event.number}<svg viewBox="0 0 60 60" aria-hidden="true"><path d="M48 10C25-2 1 11 5 33S27 61 45 47S63 17 46 8" /></svg></span><div><h2>{event.title}</h2><p>{event.subtitle}</p></div><DoodleHeart className="card-heart" /></div>
     <div className="fashion-portrait"><span className="margin-note" aria-hidden="true">{event.marginNote}<svg viewBox="0 0 80 60"><path d="M5 5Q15 42 66 39M55 29L68 39L55 49" /></svg></span>{event.id === 'jaggo' ? <JaggoArt him={him} her={her} /> : <CoupleArt panel={event.panel} shade={shade} label={`${event.title}: full-length hand-drawn couple${event.shades ? `, both wearing ${event.shades[shade].name}` : ''}`} />}<div className="handwritten-note" aria-hidden="true">{notes[event.id].map(line => <span key={line}>{line}</span>)}<DoodleHeart /></div></div>
     <div className="outfit-controls">
-      {event.shades && <><div className="shade-dots" role="group" aria-label={`${event.title} shades`}>{event.shades.map((color, index) => <button key={color.hex} className={`shade-dot ${shade === index ? 'selected' : ''}`} style={{ backgroundColor: color.hex }} aria-label={color.name} aria-pressed={shade === index} title={color.name} onClick={() => setShade(index)}><span className="shade-tooltip">{color.name}</span>{shade === index && <span aria-hidden="true">✓</span>}</button>)}</div><p className="selection-label" aria-live="polite">{event.shades[shade].name}</p></>}
+      {event.shades && <ShadePicker id={event.id} title={event.title} shades={event.shades} selected={shade} onChange={setShade} />}
       {event.id === 'western' && <span className="outfit-tag">Your color. Your moment.</span>}
       {event.id === 'jaggo' && <><div className="wardrobe-controls">{(['him', 'her'] as const).map(person => <fieldset className="wardrobe-group" key={person}><legend>For {person}</legend><div className="wardrobe-buttons">{jaggoOutfits[person].map((outfit, index) => <button key={outfit.id} className={(person === 'him' ? him : her) === index ? 'selected' : ''} aria-pressed={(person === 'him' ? him : her) === index} onClick={() => person === 'him' ? setHim(index) : setHer(index)}>{outfit.label}</button>)}</div></fieldset>)}</div><p className="selection-label" aria-live="polite">{jaggoOutfits.him[him].label} + {jaggoOutfits.her[her].label}</p></>}
     </div>

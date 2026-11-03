@@ -33,6 +33,10 @@ No backend or external state library is required. Outfit choices use local React
 
 Navigation has a small progress indicator for internal route changes, and illustrations show a ring loader until their image loads. Outfit changes keep their fixed-size frames. Motion respects the device's reduced-motion preference; no artificial loading delays are added.
 
+Haldi and Mehndi show a handwritten “Tap a shade to change our outfits” instruction with an animated hand and staggered rings around the unselected swatches. The cue starts when its card becomes visible and is dismissed after the guest chooses a different shade. Its reserved space keeps the controls steady. The text remains useful with reduced motion enabled.
+
+Jaggo's corrected Sharara illustration has uninterrupted wide trouser legs; the Garara has fitted thighs, contrasting gold knee bands, and gathered tiers below them. These are separate v2 assets; the originals are retained. Built-in image-generation briefs are in `public/images/jaggo-silhouette-corrections.json`.
+
 Great Vibes, Caveat, and Oooh Baby are hosted locally in `public/fonts`, with their SIL Open Font Licenses included. The two regular font files are preloaded by the shared layout; handwritten typography does not require a connection to Google Fonts. Supporting text and controls use Caveat; the Dress Code heading uses Oooh Baby, and the other script titles and couple's name lockup use Great Vibes. Next images are configured with `unoptimized: true`.
 
 ## Artwork limitations

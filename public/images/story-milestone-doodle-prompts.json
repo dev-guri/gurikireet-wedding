@@ -1,0 +1,14 @@
+{
+  "tool": "Built-in image_gen",
+  "references": "Couple-supplied first-meeting café selfie and two roka photographs; existing personalized cartoon doodle used as the style reference",
+  "briefs": [
+    {
+      "asset": "our-story-first-meeting-doodle.png",
+      "brief": "Draw the couple seated together at a café in the established cartoon style. Man in a blue polo and cream turban; woman in her ivory dress with small blue floral motifs. Keep black hair and beard, expressive simplified faces, and a mostly white background. Later clothing and food corrections are recorded in the corresponding revision brief files."
+    },
+    {
+      "asset": "our-story-roka-doodle.png",
+      "brief": "Draw the couple standing together in their actual roka outfits, in the established cartoon doodle style. Man in a vivid blue turban, ivory embroidered high-collar jacket and ivory trousers. Woman in an ivory embroidered lehenga with a turquoise dupatta, jewellery and bangles. Add a sparse gold floral arch on a white background. Preserve the couple’s identities and keep the entire figures visible."
+    }
+  ]
+}

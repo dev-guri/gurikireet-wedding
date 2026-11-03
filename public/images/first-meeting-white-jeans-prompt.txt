@@ -1,0 +1,5 @@
+Tool: built-in image_gen.
+Edit reference: our-story-first-meeting-doodle.png.
+Output: our-story-first-meeting-doodle-v2.png.
+
+Generation brief: Change only the man’s visible trousers below the blue polo to white jeans with black outline and fold details. Preserve the cream turban, blue polo, woman’s blue-floral dress, faces, café setting, and cartoon style.

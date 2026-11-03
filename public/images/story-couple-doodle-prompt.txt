@@ -1,0 +1,5 @@
+Tool: built-in image_gen.
+References: existing western-ink.png (primary cartoon style); the couple's supplied photograph (identity and clothing).
+Output: gurinder-gurpreet-story-doodle.png, displayed in the Our Story hero.
+
+Generation brief: Create a playful cartoon doodle using the existing ink illustration as the style reference and the couple’s supplied photograph for identity and clothing. Preserve the turban, full beard, long dark hair, polo and casual outfit. Use expressive simplified faces, bold black outlines, solid hair fills, a pure white background, and uncropped head-to-shoes framing. Avoid realistic pencil shading.

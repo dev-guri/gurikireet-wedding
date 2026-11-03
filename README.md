@@ -1,5 +1,15 @@
 # Gurinder & Gurpreet Wedding
 
+## Manual push
+
+Changes stay local until you choose to push. Run:
+
+```sh
+npm run push -- "Update dress code"
+```
+
+This stages the current project changes, creates a commit if needed, and pushes `main` to `origin`. It uses your Git authentication; no credentials are stored in the script. Omitting the message uses `Update wedding website`.
+
 New Next.js 14 App Router project with TypeScript and Tailwind CSS.
 
 ## Run locally
@@ -24,12 +34,19 @@ npm run typecheck
 - `app/loading.tsx` and `app/template.tsx`: actual route-loading fallback and brief page entrance animation.
 - `app/icon.svg` and `app/apple-icon.tsx`: matching ring-emblem browser favicon and mobile home-screen icon, discovered automatically by Next.js.
 - `app/dress-code/page.tsx`: interactive function cards.
-- `app/our-story`, `app/events`, `app/gallery`, `app/rsvp`, `app/location`, `app/faqs`: independent Coming Soon pages, ready to replace with real content.
+- `app/our-story/page.tsx` and `app/our-story/story.css`: family-friendly illustrated story and the couple's confirmed milestones.
+- `app/events`, `app/gallery`, `app/rsvp`, `app/location`, `app/faqs`: independent Coming Soon pages, ready to replace with real content.
 - `components/`: reusable navigation, monogram, footer, Coming Soon, and outfit cards.
 - `lib/constants.ts`: wedding names, navigation, palette, function data, image paths, and independent Jaggo outfit options for him and her.
+- `lib/story.ts`: public story copy, confirmed dates, and optional photographs. Set `storyPhotos.firstMeeting.src`, `storyPhotos.roka.src`, and `storyPhotos.favourite.src` to the couple's selected public photo paths. Until then, illustrated memory cards are shown.
+- `components/story/StoryPortrait.tsx`: personalized cartoon doodle in the Our Story hero, with a loading state. The current illustration is `public/images/gurinder-gurpreet-story-doodle-v3.png`, with a black-filled turban and plain black jeans; the supplied original photo stays outside the website project. The first-hello chapter uses a symbolic WhatsApp-inspired doodle with generic greetings, not a private-chat screenshot.
 - `public/images/*-ink.png`: reference-inspired cartoon couple artwork for each function; generation briefs are in `public/images/ink-artwork-prompts.json`. Previous artwork assets are retained separately.
 
 No backend or external state library is required. Outfit choices use local React state. To add a page, create its App Router directory and add its link in `lib/constants.ts`.
+
+Our Story uses the couple-confirmed first hello (13 February 2026), first meeting in Connaught Place (1 March 2026), and roka (16 May 2026). Its narrative is written for a public, family audience. Raw WhatsApp exports stay outside the project and `_chat*.txt` is ignored by Git.
+
+The first-meeting and roka cards use separate personalized cartoon illustrations based on the couple's supplied photos. First meeting: blue polo, white jeans, cream turban, and an ivory/blue-floral dress. The couple confirmed the first-meeting order was white sauce pasta, chilli garlic noodles, and a Belgian chocolate shake. Roka: ivory embroidered clothes, blue turban, and turquoise dupatta. These source photos are not copied into the public website assets. Generation briefs are in `public/images/story-milestone-doodle-prompts.json`, with subsequent corrections recorded alongside the updated artwork.
 
 Navigation has a small progress indicator for internal route changes, and illustrations show a ring loader until their image loads. Outfit changes keep their fixed-size frames. Motion respects the device's reduced-motion preference; no artificial loading delays are added.
 

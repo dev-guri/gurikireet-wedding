@@ -1,0 +1,63 @@
+.story-page{max-width:1120px;margin:0 auto;padding:0 36px;color:var(--ink)}
+.story-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:42px;align-items:center;padding:48px 24px 32px;min-height:530px}
+.story-kicker{font-family:var(--font-hand),cursive;font-size:14px;font-weight:500;letter-spacing:1.8px;color:#8e7d5e}
+.story-title-row{display:flex;align-items:center;gap:22px;margin:14px 0 9px}
+.story-title-row h1{font-family:'Oooh Baby',var(--font-hand),cursive;font-size:clamp(58px,7vw,84px);font-weight:400;line-height:1.2;rotate:-6deg;margin:0;padding:5px 6px 12px 0}
+.story-title-row>.doodle-heart{width:29px;height:42px;rotate:13deg;margin-top:-12px}
+.story-hero-line{font-family:var(--font-hand),cursive;font-size:30px;line-height:1.1;rotate:-2deg;margin:8px 0 20px}
+.story-hero-intro{font-family:var(--font-hand),cursive;font-size:19px;line-height:1.65;max-width:355px;color:#736b5d;margin:0 0 16px}
+.story-hero-copy>.wedding-hashtag{font-size:24px;margin:0 0 20px -6px}
+.story-scroll-link{display:flex;align-items:center;gap:14px;width:fit-content;font-family:var(--font-hand),cursive;font-size:17px;color:#85714b}
+.story-scroll-link>span{animation:story-page-nudge 2.5s ease-in-out infinite}
+.story-scroll-link:hover{color:var(--heart)}
+.story-hero-picture{position:relative;align-self:center;min-width:0}
+.story-hero-picture.hero-enter{animation-delay:.15s}
+.story-hero-picture .story-hero-couple{width:100%;max-width:360px;max-height:440px;margin:0 auto}
+.story-picture-note{position:absolute;right:-6px;bottom:22px;font-family:var(--font-hand),cursive;font-size:23px;rotate:-11deg;color:#8e7d5e;pointer-events:none}
+.story-picture-note>svg{display:block;width:68px;height:38px;margin-left:8px;rotate:180deg}
+.story-hero-real-photo{position:relative;width:90%;max-width:340px;aspect-ratio:4/5;border:1px solid var(--border);padding:10px;rotate:3deg;margin:0 auto}
+.story-hero-real-photo>img{object-fit:cover;border:9px solid #fff}
+.story-opening{display:flex;align-items:center;justify-content:center;gap:38px;text-align:center;padding:26px 20px 40px;transition:opacity .8s,transform .8s}
+.story-opening p{font-family:var(--font-hand),cursive;font-size:22px;line-height:1.55;rotate:-2deg;margin:0;color:#726657}
+.story-little-star{font-size:27px;color:#baa374}
+.story-timeline{position:relative;margin:0 8px}
+.story-chapter{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;padding:55px 22px 60px;scroll-margin-top:90px;border-top:1px solid var(--border);transition:opacity .8s,transform .8s}
+.story-chapter.is-reversed .story-chapter-copy{order:2}
+.story-chapter.is-reversed .story-postcard{order:1;rotate:3deg}
+.story-chapter-meta{display:flex;align-items:center;gap:13px;color:#917f5c;font-family:var(--font-hand),cursive;font-size:16px}
+.story-chapter-number{position:relative;display:inline-flex;align-items:center;justify-content:center;width:33px;height:33px;border:1px solid #c8bda7;border-radius:46% 54% 51% 49%;rotate:-8deg;font-size:19px;flex-shrink:0}
+.story-chapter-copy h2{font-family:var(--font-hand),cursive;font-size:32px;font-weight:500;line-height:1.15;rotate:-2deg;margin:19px 0 20px;max-width:390px}
+.story-chapter-copy>p{font-family:var(--font-hand),cursive;font-size:19px;line-height:1.65;color:#6f695e;margin:0 0 14px;max-width:410px}
+.story-margin-note{position:relative;display:inline-block;font-family:'Oooh Baby',var(--font-hand),cursive;font-size:22px;line-height:1.3;rotate:-5deg;color:#a65b50;margin-top:10px;padding-bottom:7px}
+.story-margin-note:after{content:'';position:absolute;left:0;right:0;bottom:0;height:5px;border-bottom:1px solid #caa89d;border-radius:50%;rotate:-2deg}
+.story-postcard{position:relative;margin:0 auto;width:100%;max-width:370px;padding:14px 14px 17px;background:#fff;border:1px solid var(--border);box-shadow:0 7px 25px #3c2c1608;rotate:-3deg;transition:rotate .35s,box-shadow .35s}
+.story-paper-tape{position:absolute;z-index:2;width:81px;height:24px;left:50%;top:-12px;translate:-50% 0;rotate:5deg;background:repeating-linear-gradient(100deg,#eee8dbb3 0px,#eee8dbb3 2px,#f4f0e7b3 2px,#f4f0e7b3 5px);clip-path:polygon(3% 0,97% 3%,100% 12%,97% 23%,100% 37%,98% 48%,100% 63%,96% 77%,99% 95%,2% 100%,4% 88%,0 77%,3% 62%,0 48%,3% 32%,0 16%);pointer-events:none}
+.story-postcard-picture{position:relative;aspect-ratio:5/4;display:flex;align-items:center;justify-content:center;background:#fff}
+.story-memory-photo{object-fit:cover}
+.story-memory-illustration{object-fit:contain;padding:4px}
+.story-postcard figcaption{font-family:var(--font-hand),cursive;font-size:18px;line-height:1.4;text-align:center;padding:9px 6px 0;color:#7f725e}
+.story-doodle{width:84%;height:auto;max-height:230px;color:#34332d;overflow:visible}
+.story-everyday{position:relative;margin:12px 20px 46px;padding:30px 25px 25px;border:1px dashed #d9cbb0;border-radius:3px;transition:opacity .8s,transform .8s}
+.story-everyday-heading{display:flex;align-items:center;justify-content:center;gap:21px;margin:0 auto 23px;max-width:610px}
+.story-everyday-heading>.story-doodle{width:100px;height:110px;flex-shrink:0;rotate:-9deg}
+.story-everyday-heading h2{font-family:var(--font-hand),cursive;font-size:31px;font-weight:500;line-height:1.2;rotate:-2deg;margin:7px 0 8px}
+.story-everyday-heading p{font-family:var(--font-hand),cursive;font-size:18px;line-height:1.4;color:#83745f;margin:0}
+.story-little-things{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.story-small-note{text-align:center;padding:12px 10px 8px}
+.story-small-note>span{color:#bb7b6d;font-size:24px;display:block;margin:0 auto 9px}
+.story-small-note h3{font-family:var(--font-hand),cursive;font-size:22px;font-weight:500;rotate:-3deg;line-height:1.2;margin:0 0 10px}
+.story-small-note p{font-family:var(--font-hand),cursive;font-size:17px;line-height:1.5;color:#7c7365;margin:0 auto;max-width:235px}
+.story-next-chapter{text-align:center;display:flex;align-items:center;flex-direction:column;padding:32px 20px 65px;border-top:1px solid var(--border);transition:opacity .8s,transform .8s}
+.story-next-chapter>.doodle-heart{width:25px;height:35px;margin:0 auto 19px;rotate:-8deg}
+.story-next-chapter h2{font-family:'Oooh Baby',var(--font-hand),cursive;font-size:43px;font-weight:400;line-height:1.1;rotate:-4deg;margin:19px 0 26px}
+.story-next-chapter>p{font-family:var(--font-hand),cursive;font-size:20px;line-height:1.5;color:#7d705f;max-width:445px;margin:0 auto 16px}
+.story-sign-off{font-family:var(--font-hand),cursive;font-size:23px;rotate:-3deg;margin:0 0 26px}
+.story-next-chapter .button{font-size:18px}
+@keyframes story-page-nudge{0%,100%{translate:0 0}50%{translate:0 4px}}
+@media(hover:hover){.story-postcard:hover{rotate:0deg;box-shadow:0 10px 30px #3c2c160e}}
+@media(max-width:1000px) and (min-width:768px){.story-hero{gap:25px;padding-left:8px;padding-right:8px}.story-chapter{gap:38px;padding-left:8px;padding-right:8px}.story-picture-note{right:-12px;font-size:20px}}
+@media(max-width:767px){
+  .story-page{padding:0 18px}.story-hero{grid-template-columns:1fr;gap:19px;padding:32px 8px 20px;min-height:0;text-align:center}.story-hero-copy{display:flex;flex-direction:column;align-items:center}.story-kicker{font-size:12px;letter-spacing:1.4px}.story-title-row{gap:14px;margin:13px 0 8px}.story-title-row h1{font-size:64px;padding-bottom:12px}.story-title-row>.doodle-heart{width:22px;height:34px}.story-hero-line{font-size:26px;margin:8px 0 18px}.story-hero-intro{font-size:18px;line-height:1.5;max-width:320px;margin-bottom:14px}.story-hero-copy>.wedding-hashtag{font-size:22px;margin-bottom:19px}.story-scroll-link{font-size:16px}.story-hero-picture .story-hero-couple{max-width:290px;max-height:380px}.story-hero-picture{width:100%;max-width:370px;justify-self:center}.story-picture-note{right:4px;bottom:12px;font-size:20px}.story-picture-note>svg{width:51px;height:30px}.story-hero-real-photo{max-width:280px}.story-opening{gap:14px;padding:20px 0 30px}.story-opening p{font-size:19px;line-height:1.5}.story-little-star{font-size:20px}.story-timeline{margin:0}.story-chapter{grid-template-columns:1fr;gap:30px;padding:32px 7px 40px;scroll-margin-top:80px}.story-chapter.is-reversed .story-chapter-copy{order:0}.story-chapter.is-reversed .story-postcard{order:0}.story-chapter-meta{font-size:15px;gap:11px}.story-chapter-number{width:30px;height:30px;font-size:18px}.story-chapter-copy h2{font-size:28px;margin:15px 0 16px;max-width:310px}.story-chapter-copy>p{font-size:18px;line-height:1.6;max-width:none;margin-bottom:12px}.story-margin-note{font-size:20px;margin-top:7px}.story-postcard{width:90%;max-width:325px;padding:12px 12px 14px}.story-postcard figcaption{font-size:17px}.story-doodle{max-height:205px}.story-everyday{margin:2px 1px 32px;padding:23px 13px 12px}.story-everyday-heading{gap:8px;margin-bottom:10px}.story-everyday-heading>.story-doodle{width:64px;height:95px}.story-everyday-heading h2{font-size:27px;line-height:1.1}.story-everyday-heading p{font-size:16px}.story-everyday-heading .story-kicker{font-size:10px;letter-spacing:1px}.story-little-things{grid-template-columns:1fr;gap:0}.story-small-note{display:grid;grid-template-columns:30px 1fr;column-gap:7px;text-align:left;padding:17px 10px}.story-small-note+.story-small-note{border-top:1px solid #eee9de}.story-small-note>span{grid-row:1/3;font-size:22px;margin:0}.story-small-note h3{font-size:22px;margin:0 0 5px;rotate:-2deg}.story-small-note p{max-width:none;font-size:17px;margin:0}.story-next-chapter{padding:30px 9px 45px}.story-next-chapter h2{font-size:37px;margin:17px 0 23px}.story-next-chapter>p{font-size:18px;max-width:315px}.story-sign-off{font-size:21px;margin-bottom:24px}
+}
+@media(max-width:370px){.story-title-row h1{font-size:58px}.story-hero-line{font-size:24px}.story-chapter-copy h2{font-size:26px}.story-everyday-heading h2{font-size:24px}}
+@media(prefers-reduced-motion:reduce){.story-scroll-link>span{animation:none}.story-postcard{transition:none}}

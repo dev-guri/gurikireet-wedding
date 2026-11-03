@@ -1,0 +1,5 @@
+Tool: built-in image_gen.
+Edit reference: our-story-first-meeting-doodle-v2.png.
+Output: our-story-first-meeting-doodle-v3.png.
+
+Generation brief: Replace only the two coffee mugs and saucers on the café table with white sauce pasta, chilli garlic noodles, and one Belgian chocolate shake with a single straw. Preserve the man’s blue polo, white jeans and cream turban, the woman’s blue-floral dress, faces, poses, setting, and cartoon style.

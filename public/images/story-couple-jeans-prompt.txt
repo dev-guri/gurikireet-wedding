@@ -1,0 +1,5 @@
+Tool: built-in image_gen.
+Edit reference: gurinder-gurpreet-story-doodle-v2.png.
+Output: gurinder-gurpreet-story-doodle-v3.png.
+
+Generation brief: Change only the man’s black cargo trousers to plain straight-leg black jeans. Remove both cargo thigh pockets and flaps. Preserve the black turban, white polo, faces, pose, woman, sneakers, white background, and cartoon drawing style.

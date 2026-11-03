@@ -8,3 +8,5 @@ out/
 .yarn/cache/
 .yarn/install-state.gz
 .pnp.*
+# Private WhatsApp exports are source material, not website assets.
+_chat*.txt

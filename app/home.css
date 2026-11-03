@@ -1,0 +1,144 @@
+/* The home page is a little illustrated invitation, on clean white paper. */
+.landing-home{max-width:1120px;margin:auto;padding:0 32px;background:#fff}
+.landing-home h1,.landing-home h2,.landing-home h3{font-weight:400}
+.landing-home h2{font-family:'Oooh Baby',cursive;font-size:42px;line-height:1.2;margin:14px 0 20px}
+.landing-eyebrow{font-size:12px;letter-spacing:1.7px;color:#8a7755;display:block;line-height:1.6}
+.landing-hero{display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:28px;min-height:540px;padding:54px 0 58px}
+.landing-hero-copy{padding-left:20px}
+.landing-name-wrap{position:relative;width:fit-content;margin:24px 0 26px;padding-right:35px}
+.landing-name-wrap h1{font-family:'Oooh Baby',cursive;font-size:clamp(56px,6vw,76px);line-height:.98;display:flex;flex-direction:column;transform:rotate(-5deg);margin:0;padding:8px 0 12px}
+.landing-name-wrap h1>i{color:#b49a55;font-size:30px;font-style:normal;margin:6px 0 -8px 85px}
+.landing-name-wrap h1>span:last-child{margin-left:55px}
+.landing-name-heart{position:absolute;right:-7px;top:14px;width:28px;height:37px;rotate:13deg}
+.landing-welcome{font-size:20px;line-height:1.45;margin:0 0 22px}
+.landing-date-note{display:flex;flex-direction:column;gap:2px;margin-bottom:26px}
+.landing-date-note>time{font-size:24px;font-weight:500}
+.landing-date-note>span{font-size:17px;color:var(--muted)}
+.landing-date-note i{padding:0 6px;font-style:normal;color:#b49a55}
+.landing-hero-actions{display:flex;align-items:flex-start;flex-direction:column;gap:14px}
+.landing-primary-button{font-size:18px;padding:9px 23px;background:var(--ink);color:white}
+.landing-primary-button:hover{background:#fff;color:var(--ink)}
+.landing-text-link{display:inline-block;font-family:var(--font-hand),cursive;font-size:18px;background:none;border:0;border-bottom:1px solid #b6a17a;padding:1px 0 3px;line-height:1.3;transition:color .2s,border-color .2s}
+.landing-text-link:hover{color:var(--heart);border-color:var(--heart)}
+.landing-hero-portrait{position:relative;animation-delay:.12s;padding-bottom:20px}
+.landing-artwork{position:relative;width:100%;aspect-ratio:5/4;isolation:isolate}
+.landing-artwork>:is(img,canvas){object-fit:contain;padding:8px;opacity:0;transition:opacity .4s}
+.landing-artwork.is-loaded>:is(img,canvas){opacity:1}
+.landing-portrait-note{display:block;text-align:right;color:#8a7755;font-size:20px;rotate:-6deg;margin:0 18px 0 0}
+.landing-portrait-note svg{display:inline-block;width:70px;height:35px;vertical-align:top;fill:none;stroke:currentColor;stroke-width:1.3;margin-left:5px;transform:scaleX(-1)}
+.landing-countdown-section{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:26px 20px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.landing-countdown-heading{position:relative;padding-left:38px}
+.landing-countdown-heading>.doodle-heart{position:absolute;left:0;top:5px;width:23px;height:31px}
+.landing-countdown-heading h2{font-family:var(--font-hand),cursive;font-size:24px;margin:0 0 1px}
+.landing-small-note{color:#8a7755;font-size:17px}
+.landing-countdown{display:flex;gap:24px;flex-shrink:0}
+.landing-countdown-unit{display:flex;flex-direction:column;align-items:center;min-width:44px;line-height:1.1;font-size:15px;color:var(--muted)}
+.landing-countdown-value{font-size:34px;font-variant-numeric:tabular-nums;min-width:2.5ch;color:var(--ink);text-align:center;margin-bottom:6px}
+.landing-countdown-complete{color:var(--heart);font-size:24px;margin:12px 0}
+.landing-story{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:80px;padding:100px 24px 90px}
+.landing-memory-card{position:relative;margin:0;padding:13px 12px 18px;border:1px solid var(--border);background:white;box-shadow:1px 8px 24px #4d381b0b;rotate:-4deg;transition:rotate .4s}
+.landing-memory-card:hover{rotate:-1deg}
+.landing-memory-card .landing-artwork{aspect-ratio:1/1}
+.landing-memory-card figcaption{font-size:18px;text-align:center;margin-top:12px;color:#84714f}
+.landing-tape{position:absolute;top:-13px;left:36%;width:29%;height:28px;background:repeating-linear-gradient(100deg,#d4c4a940,#d4c4a940 3px,#e1d8c340 3px,#e1d8c340 5px);rotate:4deg;z-index:2;clip-path:polygon(3% 0,97% 3%,100% 94%,0 100%)}
+.landing-story-copy>p{font-size:19px;color:#726e65;line-height:1.6;margin:0 0 22px}
+.landing-mini-timeline{list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:15px;position:relative}
+.landing-mini-timeline:before{content:'';position:absolute;left:4px;top:6px;bottom:7px;border-left:1px dashed #c7bba5}
+.landing-mini-timeline li{display:flex;align-items:center;gap:13px;font-size:18px;position:relative}
+.landing-moment-dot{width:9px;height:9px;flex-shrink:0;background:white;border:1px solid #b49a55;border-radius:50%;z-index:1}
+.landing-mini-timeline li:last-child .landing-moment-dot{background:#b49a55}
+.landing-mini-timeline time{color:#8a7755;min-width:46px;font-size:16px}
+.landing-celebrations{padding:20px 0 80px}
+.landing-section-heading{text-align:center;margin-bottom:34px}
+.landing-section-heading h2{margin:12px 0}
+.landing-section-heading p{font-size:18px;color:var(--muted);margin:0}
+.landing-function-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.landing-function-card{position:relative;display:flex;flex-direction:column;align-items:center;padding:30px 12px 22px;text-align:center;border:1px solid var(--border);border-radius:48% 52% 12px 12px/13px 16px 12px 12px;transition:transform .3s,border-color .3s,box-shadow .3s;background:#fff}
+.landing-function-card:hover{transform:translateY(-6px) rotate(-1deg);border-color:#b49a55;box-shadow:0 9px 20px #3e302508}
+.landing-function-number{position:absolute;left:16px;top:15px;font-size:14px;color:#ac9d85;rotate:-9deg}
+.landing-function-card>svg{margin:4px 0 12px;transition:rotate .3s}
+.landing-function-card:hover>svg{rotate:7deg}
+.landing-function-card h3{font-size:27px;margin:0 0 5px;line-height:1.2}
+.landing-function-card p{font-size:16px;color:var(--muted);margin:0 0 21px;flex:1}
+.landing-function-link{font-size:16px;border-bottom:1px solid #cfc4b1;padding-bottom:3px}
+.landing-function-link i{font-style:normal;margin-left:7px}
+.landing-function-haldi:hover{border-color:#7faacf}
+.landing-function-mehndi:hover{border-color:#eb8850}
+.landing-venue{display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:32px;align-items:center;padding:36px 30px;border:1px solid var(--border);border-radius:18px;position:relative}
+.landing-venue-art{text-align:center}
+.landing-venue-art>svg{margin:0 auto 9px}
+.landing-venue-art .landing-small-note{display:block;rotate:-7deg}
+.landing-venue-copy h2{font-size:38px;margin:6px 0 12px}
+.landing-venue-copy address{font-style:normal;font-size:18px;line-height:1.5;max-width:430px;color:#726e65}
+.landing-venue-date{margin:12px 0 0;color:#8a7755;font-size:18px}
+.landing-directions{font-size:18px;white-space:nowrap;padding:9px 20px}
+.landing-share{display:flex;align-items:center;flex-direction:column;text-align:center;padding:80px 20px 55px}
+.landing-share>.doodle-heart{width:24px;height:32px;rotate:12deg}
+.landing-share h2{font-size:34px;margin:16px 0 24px}
+.landing-share>.wedding-hashtag{font-size:30px}
+.landing-share>p{font-size:18px;color:var(--muted);max-width:390px;margin:23px 0 13px}
+.landing-copy-tag{min-height:37px}
+.landing-copy-message{display:block;font-size:16px;margin-top:8px;color:#8a7755}
+.landing-sign-off{font-family:'Oooh Baby',cursive;font-size:26px;margin-top:36px;color:#8a7755;rotate:-3deg}
+.landing-home [data-reveal]{transition:opacity .8s,transform .8s}
+@media(min-width:768px) and (max-width:1000px){.landing-hero-copy{padding-left:0}.landing-hero{gap:8px}.landing-story{gap:40px;padding-left:10px;padding-right:10px}.landing-function-grid{gap:12px}.landing-function-card{padding-left:8px;padding-right:8px}.landing-function-card p{font-size:15px}.landing-countdown{gap:18px}.landing-countdown-heading h2{font-size:21px}.landing-venue{grid-template-columns:85px 1fr;gap:22px}.landing-directions{grid-column:2;justify-self:start}.landing-venue-art{grid-row:1/3}}
+@media(max-width:767px){
+ .landing-home{padding:0 22px}
+ .landing-hero{grid-template-columns:1fr;gap:16px;padding:38px 0 26px;min-height:0;text-align:center}
+ .landing-hero-copy{padding:0}
+ .landing-eyebrow{font-size:11px;letter-spacing:1.3px}
+ .landing-name-wrap{margin:20px auto 21px;padding-right:22px}
+ .landing-name-wrap h1{font-size:60px;padding-top:4px}
+ .landing-name-wrap h1>i{font-size:25px;margin:4px 0 -8px 65px}
+ .landing-name-wrap h1>span:last-child{margin-left:42px}
+ .landing-name-heart{right:-7px;top:12px;width:24px;height:32px}
+ .landing-welcome{font-size:18px;margin-bottom:17px}
+ .landing-date-note{margin-bottom:22px}
+ .landing-date-note>time{font-size:22px}
+ .landing-date-note>span{font-size:16px}
+ .landing-hero-actions{align-items:center;gap:12px}
+ .landing-text-link{font-size:17px}
+ .landing-hero-portrait{max-width:440px;width:100%;margin:auto;padding-bottom:8px}
+ .landing-portrait-note{font-size:18px;margin-right:12px;margin-top:-2px}
+ .landing-portrait-note svg{width:50px;height:28px}
+ .landing-countdown-section{flex-direction:column;gap:21px;padding:25px 0 28px;text-align:center}
+ .landing-countdown-heading{padding-left:28px}
+ .landing-countdown-heading h2{font-size:22px}
+ .landing-countdown-heading>.doodle-heart{width:19px;height:27px;top:2px}
+ .landing-small-note{font-size:16px}
+ .landing-countdown{gap:25px}
+ .landing-countdown-value{font-size:31px}
+ .landing-countdown-unit{font-size:14px;min-width:38px}
+ .landing-story{grid-template-columns:1fr;gap:40px;padding:58px 5px 45px}
+ .landing-memory-card{max-width:340px;width:92%;margin:auto;padding:10px 10px 15px}
+ .landing-memory-card figcaption{font-size:17px}
+ .landing-story-copy{max-width:440px;margin:auto;width:100%}
+ .landing-home h2{font-size:35px}
+ .landing-story-copy>p{font-size:18px;line-height:1.5}
+ .landing-mini-timeline{gap:12px}
+ .landing-mini-timeline li{font-size:17px}
+ .landing-celebrations{padding:18px 0 46px}
+ .landing-section-heading{margin-bottom:25px}
+ .landing-section-heading h2{font-size:32px}
+ .landing-section-heading p{font-size:17px}
+ .landing-function-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+ .landing-function-card{padding:26px 8px 20px}
+ .landing-function-card>svg{width:68px;height:65px;margin-bottom:11px}
+ .landing-function-card h3{font-size:25px}
+ .landing-function-card p{font-size:15px;margin-bottom:17px;max-width:135px}
+ .landing-function-link{font-size:15px}
+ .landing-function-number{left:12px;top:10px;font-size:13px}
+ .landing-venue{grid-template-columns:1fr;padding:27px 22px;gap:20px;text-align:center}
+ .landing-venue-art>svg{width:70px;height:65px;margin-bottom:6px}
+ .landing-venue-copy h2{font-size:35px;margin:10px 0 14px}
+ .landing-venue-copy address{font-size:17px;max-width:340px;margin:auto}
+ .landing-venue-date{font-size:17px;margin-top:16px}
+ .landing-directions{justify-self:center;font-size:17px}
+ .landing-share{padding:48px 4px 36px}
+ .landing-share h2{font-size:30px;max-width:300px;line-height:1.3;margin-bottom:22px}
+ .landing-share>.wedding-hashtag{font-size:28px}
+ .landing-share>p{font-size:17px;max-width:310px}
+ .landing-sign-off{font-size:24px;margin-top:30px}
+}
+@media(max-width:360px){.landing-home{padding:0 16px}.landing-countdown{gap:20px}.landing-countdown-heading h2{font-size:20px}.landing-function-card h3{font-size:23px}}
+@media(prefers-reduced-motion:reduce){.landing-function-card:hover{transform:none}.landing-memory-card:hover{rotate:-4deg}.landing-function-card:hover>svg{rotate:0deg}}

@@ -1,4 +1,16 @@
-export const wedding = { bride: 'Gurpreet', groom: 'Gurinder', names: 'Gurinder & Gurpreet', hashtag: '#GuriKiReet' };
+export const wedding = {
+  bride: 'Gurpreet', groom: 'Gurinder', names: 'Gurinder & Gurpreet', hashtag: '#GuriKiReet',
+  date: '2027-01-31',
+  guestArrival: '11:00 am',
+  // Start of the wedding day in India, not a ceremony time.
+  dayStartsAt: '2027-01-31T00:00:00+05:30',
+  venue: {
+    name: 'Majestic Crown',
+    address: '24, Najafgarh Rd, Block C, Najafgarh Road Industrial Area, New Delhi, Delhi 110015',
+    city: 'New Delhi',
+  },
+};
+export const weddingDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${wedding.venue.name}, ${wedding.venue.address}`)}`;
 export const colors = { white: '#FFFFFF', gold: '#D4AF37', heart: '#C84B4B', border: '#E8E0D5' };
 export const navigation = [
   { label: 'Home', href: '/' }, { label: 'Dress Code', href: '/dress-code' },

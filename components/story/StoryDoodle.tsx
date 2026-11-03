@@ -25,9 +25,9 @@ export default function StoryDoodle({ kind }: { kind: StoryDoodleKind }) {
     </g>}
     {kind === 'rings' && <g strokeLinecap="round" strokeLinejoin="round">
       <ellipse cx="101" cy="120" rx="45" ry="34" transform="rotate(-24 101 120)" stroke="currentColor" strokeWidth="2.5" />
-      <ellipse cx="155" cy="120" rx="45" ry="34" transform="rotate(-24 155 120)" stroke="white" strokeWidth="6.5" />
+      <ellipse cx="155" cy="120" rx="45" ry="34" transform="rotate(-24 155 120)" stroke="var(--paper, white)" strokeWidth="6.5" />
       <ellipse cx="155" cy="120" rx="45" ry="34" transform="rotate(-24 155 120)" stroke="#B49A55" strokeWidth="2.5" />
-      <path d="M91 151C104 151 118 144 128 133" stroke="white" strokeWidth="6.5" />
+      <path d="M91 151C104 151 118 144 128 133" stroke="var(--paper, white)" strokeWidth="6.5" />
       <path d="M91 151C104 151 118 144 128 133" stroke="currentColor" strokeWidth="2.5" />
       <path d="M126 64C111 45 113 35 120 36C127 37 128 46 128 49C137 28 148 32 145 42C143 50 132 61 126 64Z" stroke="#C84B4B" strokeWidth="2" />
       <path d="M61 61L67 48L71 61L83 65L70 68L66 81L62 68L49 65M190 56L194 46L198 57L208 60L198 63L194 74L190 63L180 60" stroke="#B49A55" strokeWidth="1.3" />

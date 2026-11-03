@@ -1,0 +1,10 @@
+{
+  "album": "https://drive.google.com/drive/folders/1G7JazgYvdVEhV-yuAQOhKO4xlRQO4dxY",
+  "previews": [
+    { "asset": "roka-album-cover-v2.jpg", "sourceFileId": "1oQB_b-M5C8D-HMIjwwMD62fjstS2Wi6o", "role": "Photo album cover: the couple seated together" },
+    { "asset": "roka-cinematic-cover.jpg", "sourceFileId": "1eqUzNhQ-o5XgpXg2Si6iDzVz9nNx4TPn", "role": "Album photograph used as a cinematic film poster" },
+    { "asset": "roka-full-film-cover.jpg", "sourceFileId": "1GNlHD_2uHGE3Q0CW4gJv_2fas71dJVUo", "role": "Album photograph used as a full film poster" }
+  ],
+  "processing": "Drive photo thumbnails at 640px wide, encoded locally as JPEG. Framing is CSS object-fit cover; photographs are not AI-generated or retouched.",
+  "videoPosters": "The videos' automatic thumbnails were dark opening/title frames. The selected album photos serve as posters, not extracted video frames. Full media remains on Drive."
+}

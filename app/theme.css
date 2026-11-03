@@ -1,0 +1,66 @@
+/* Shared palette. Light stays pure white; dark feels like a handwritten evening invitation. */
+:root{color-scheme:light;--paper:#fff;--surface:#fff;--on-ink:#fff;--accent:#8a7755;--soft-shadow:0 6px 26px #29241a04}
+:root[data-theme='dark']{color-scheme:dark;--paper:#17191c;--surface:#202329;--ink:#f0e7d8;--on-ink:#17191c;--muted:#bdb7ad;--accent:#c7b284;--gold:#ddc16d;--heart:#ec9292;--border:#41434a;--soft-shadow:0 8px 28px #00000024}
+body{background:var(--paper)}
+.header-inner>.navigation{margin-left:auto}
+.header-controls{display:flex;align-items:center;gap:10px;margin-left:20px;flex-shrink:0}
+.theme-toggle{display:grid;place-items:center;position:relative;width:36px;height:36px;flex-shrink:0;border:1px solid var(--border);border-radius:48% 52% 49% 51%;color:var(--ink);background:var(--paper);transition:rotate .25s,border-color .25s,background .25s}
+.theme-toggle:hover{rotate:-8deg;border-color:var(--accent)}
+.theme-toggle>svg{width:19px;height:19px;grid-area:1/1;transition:opacity .2s,transform .3s}
+.theme-sun{opacity:0;transform:rotate(-60deg) scale(.6)}
+:root[data-theme='dark'] .theme-sun{opacity:1;transform:rotate(0) scale(1)}
+:root[data-theme='dark'] .theme-moon{opacity:0;transform:rotate(45deg) scale(.6)}
+:root[data-theme='dark'] ::selection{background:#764747;color:#fff}
+:root[data-theme='dark'] .site-header{background:#17191cf7;border-bottom-color:var(--border)}
+:root[data-theme='dark'] :is(.skip-link,.menu-toggle,.landing-home){background:var(--paper);color:var(--ink)}
+:root[data-theme='dark'] .site-footer:before{color:var(--heart)}
+:root[data-theme='dark'] :is(.outfit-card,.landing-memory-card,.landing-function-card,.story-postcard){background:var(--surface);border-color:var(--border);box-shadow:var(--soft-shadow)}
+:root[data-theme='dark'] :is(.outfit-card:hover,.outfit-card:target,.landing-function-card:hover){border-color:var(--accent);box-shadow:0 10px 30px #00000038}
+:root[data-theme='dark'] .navigation .rsvp-link{border-color:var(--ink)}
+:root[data-theme='dark'] .navigation .rsvp-link:hover{background:var(--ink);color:var(--on-ink)}
+:root[data-theme='dark'] .button{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+:root[data-theme='dark'] .button:hover{background:var(--ink);color:var(--on-ink)}
+:root[data-theme='dark'] .landing-primary-button{background:var(--ink);color:var(--on-ink)}
+:root[data-theme='dark'] .landing-primary-button:hover{background:var(--paper);color:var(--ink)}
+:root[data-theme='dark'] .wardrobe-buttons button{background:var(--surface);border-color:#807765;color:var(--ink)}
+:root[data-theme='dark'] .wardrobe-buttons button.selected{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+:root[data-theme='dark'] .shade-dot{border-color:var(--surface)}
+:root[data-theme='dark'] .shade-tooltip{background:var(--ink);color:var(--on-ink)}
+:root[data-theme='dark'] .has-photo .story-postcard-picture{background:var(--surface)}
+:root[data-theme='dark'] .story-hero-real-photo>img{border-color:var(--surface)}
+:root[data-theme='dark'] .landing-moment-dot{background:var(--paper);border-color:var(--accent)}
+:root[data-theme='dark'] .landing-mini-timeline li:last-child .landing-moment-dot{background:var(--accent)}
+:root[data-theme='dark'] :is(.landing-mini-timeline:before,.landing-function-link,.landing-text-link,.story-everyday,.story-small-note+.story-small-note){border-color:var(--border)}
+:root[data-theme='dark'] .landing-text-link:hover{border-color:var(--heart)}
+:root[data-theme='dark'] .landing-venue{border-color:var(--border)}
+:root[data-theme='dark'] .landing-function-haldi:hover{border-color:#7faacf}
+:root[data-theme='dark'] .landing-function-mehndi:hover{border-color:#eb8850}
+/* Supporting handwritten copy is readable on both paper and card surfaces. */
+:root[data-theme='dark'] :is(.eyebrow,.couple-byline,.card-heading p,.selection-label,.closing-note p,.footer-links,.site-footer>p:not(.footer-names),.hero-description,.home-bottom-note,.story-hero-intro,.story-opening p,.story-chapter-copy>p,.story-postcard figcaption,.story-everyday-heading p,.story-small-note p,.story-next-chapter>p,.landing-story-copy>p,.landing-venue-copy address){color:var(--muted)}
+:root[data-theme='dark'] :is(.event-nav a>span,.coming-soon>p,.story-kicker,.story-scroll-link,.story-picture-note,.story-chapter-meta,.story-little-star,.story-small-note>span,.landing-eyebrow,.landing-small-note,.landing-portrait-note,.landing-memory-card figcaption,.landing-mini-timeline time,.landing-function-number,.landing-venue-date,.landing-copy-message,.landing-sign-off){color:var(--accent)}
+:root[data-theme='dark'] .footer-links a:hover{color:var(--heart)}
+:root[data-theme='dark'] .story-margin-note{color:var(--heart)}
+:root[data-theme='dark'] .story-doodle{color:var(--ink)}
+:root[data-theme='dark'] .loading-mark{color:var(--accent)}
+:root[data-theme='dark'] .navigation-loading{background:var(--surface)}
+/* Original colors, black hair and white garments are preserved. Only the
+   connected exterior paper is removed in the dark-mode canvas layer. */
+.doodle-cutout{display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}
+:root[data-theme='dark'] .doodle-original.has-cutout{opacity:0!important;pointer-events:none}
+:root[data-theme='dark'] .doodle-cutout.is-prepared{display:block}
+:root[data-theme='dark'] .brand-emblem.doodle-cutout{filter:drop-shadow(0 0 .8px #f0e7d8)}
+:root[data-theme='dark'] .illustrated-memory .story-postcard-picture{background:transparent}
+:root[data-theme='dark'] .art-placeholder{background:linear-gradient(100deg,var(--paper) 25%,var(--surface) 48%,var(--paper) 72%);background-size:240% 100%}
+.brand-emblem.doodle-cutout{inset:auto;width:49px;height:49px}
+.wedding-brand{position:relative}
+.wedding-brand.small .doodle-cutout{top:0;left:50%;transform:translateX(-50%)}
+.site-header .brand-emblem.doodle-cutout{width:36px;height:36px;left:0}
+@media(max-width:767px){.brand-emblem.doodle-cutout{width:44px;height:44px}.site-header .brand-emblem.doodle-cutout{width:32px;height:32px}}
+:root[data-theme='dark'] .story-paper-tape{opacity:.3}
+:root[data-theme='dark'] .landing-tape{opacity:.55}
+@media(max-width:767px){
+ .header-controls{margin-left:auto;gap:9px}
+ .header-inner>.navigation{margin-left:0}
+ :root[data-theme='dark'] .navigation{background:var(--paper);border-color:var(--border);box-shadow:0 10px 25px #00000030}
+}
+@media(prefers-reduced-motion:reduce){.theme-toggle:hover{rotate:0deg}}

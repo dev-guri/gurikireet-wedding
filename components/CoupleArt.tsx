@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import DoodleImage from '@/components/DoodleImage';
 import { useState } from 'react';
 import LoadingMark from './LoadingMark';
 import { functions, images } from '@/lib/constants';
@@ -32,8 +32,8 @@ export default function CoupleArt({ panel = 0, shade = 0, label, className = '' 
       <filter id={filterId} colorInterpolationFilters="sRGB"><feColorMatrix type="matrix" values={colorMatrix(panel === 1 ? '#88A9C8' : '#FF9834', target)} /></filter>
       <filter id={boyFilterId} colorInterpolationFilters="sRGB"><feColorMatrix type="matrix" values={colorMatrix(panel === 1 ? '#88A9C8' : '#FF9834', target)} /></filter>
     </defs></svg>}
-    <Image src={source} alt="" width={760} height={1000} className="couple-image original-layer" priority={panel === 0} onLoad={() => setLoaded(true)} />
-    <Image src={source} alt="" width={760} height={1000} className="couple-image boy-layer" style={{ filter: boyFilter }} />
-    <Image src={source} alt="" width={760} height={1000} className="couple-image girl-layer" style={{ filter }} />
+    <DoodleImage src={source} alt="" width={760} height={1000} className="couple-image original-layer" priority={panel === 0} onLoad={() => setLoaded(true)} />
+    <DoodleImage src={source} alt="" width={760} height={1000} className="couple-image boy-layer" style={{ filter: boyFilter }} />
+    <DoodleImage src={source} alt="" width={760} height={1000} className="couple-image girl-layer" style={{ filter }} />
   </div>;
 }

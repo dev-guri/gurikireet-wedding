@@ -4,7 +4,6 @@ import Image from 'next/image';
 import DoodleHeart from '@/components/DoodleHeart';
 import Hashtag from '@/components/Hashtag';
 import { galleryItems, galleryRokaDate } from '@/lib/gallery';
-import './gallery.css';
 
 export const metadata: Metadata = { title: 'Gallery', description: 'Gurinder and Gurpreet’s roka memories: the photo album, cinematic film and full 4K video.' };
 const dateLabel = galleryRokaDate ? new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(`${galleryRokaDate}T00:00:00+05:30`)) : null;

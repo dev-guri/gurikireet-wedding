@@ -1,7 +1,7 @@
 /* Shared palette. Light stays pure white; dark feels like a handwritten evening invitation. */
 :root{color-scheme:light;--paper:#fff;--surface:#fff;--on-ink:#fff;--accent:#8a7755;--soft-shadow:0 6px 26px #29241a04}
 :root[data-theme='dark']{color-scheme:dark;--paper:#17191c;--surface:#202329;--ink:#f0e7d8;--on-ink:#17191c;--muted:#bdb7ad;--accent:#c7b284;--gold:#ddc16d;--heart:#ec9292;--border:#41434a;--soft-shadow:0 8px 28px #00000024}
-body{background:var(--paper)}
+html,body{background:var(--paper)}
 .header-inner>.navigation{margin-left:auto}
 .header-controls{display:flex;align-items:center;gap:10px;margin-left:20px;flex-shrink:0}
 .theme-toggle{display:grid;place-items:center;position:relative;width:36px;height:36px;flex-shrink:0;border:1px solid var(--border);border-radius:48% 52% 49% 51%;color:var(--ink);background:var(--paper);transition:rotate .25s,border-color .25s,background .25s}
@@ -42,7 +42,7 @@ body{background:var(--paper)}
 :root[data-theme='dark'] .story-margin-note{color:var(--heart)}
 :root[data-theme='dark'] .story-doodle{color:var(--ink)}
 :root[data-theme='dark'] .loading-mark{color:var(--accent)}
-:root[data-theme='dark'] .navigation-loading{background:var(--surface)}
+:root[data-theme='dark'] .navigation-loading{background:var(--paper)}
 /* Original colors, black hair and white garments are preserved. Only the
    connected exterior paper is removed in the dark-mode canvas layer. */
 .doodle-cutout{display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}

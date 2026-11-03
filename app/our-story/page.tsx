@@ -7,7 +7,6 @@ import StoryPhoto from '@/components/story/StoryPhoto';
 import StoryDoodle from '@/components/story/StoryDoodle';
 import StoryPortrait from '@/components/story/StoryPortrait';
 import { littleThings, storyChapters, storyPhotos } from '@/lib/story';
-import './story.css';
 
 export const metadata: Metadata = {
   title: 'Our Story',

@@ -1,14 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { THEME_STORAGE_KEY, type Theme } from '@/lib/theme';
+import { applyTheme, THEME_STORAGE_KEY, type Theme } from '@/lib/theme';
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>('light');
   useEffect(() => {
     const media = window.matchMedia('(prefers-color-scheme: dark)');
     const apply = (next: Theme) => {
-      document.documentElement.dataset.theme = next;
+      applyTheme(next);
       setTheme(next);
     };
     const syncPreference = () => {
@@ -30,7 +30,7 @@ export default function ThemeToggle() {
 
   const toggle = () => {
     const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.dataset.theme = next;
+    applyTheme(next);
     setTheme(next);
     try { localStorage.setItem(THEME_STORAGE_KEY, next); } catch {}
   };

@@ -14,13 +14,22 @@ function load(file) {
 
 const { themeInitScript } = load('lib/theme.ts');
 function bootstrap(saved, dark, blocked = false) {
-  const document = { documentElement: { dataset: {} } };
+  const chrome = { content: '#ffffff' };
+  const scheme = { content: 'light dark' };
+  const document = {
+    documentElement: { dataset: {}, style: {} },
+    querySelectorAll: selector => selector.includes('theme-color') ? [chrome] : [scheme],
+  };
   vm.runInNewContext(themeInitScript, {
     document,
     localStorage: { getItem() { if (blocked) throw Error('Storage blocked'); return saved; } },
     window: { matchMedia() { return { matches: dark }; } },
   });
-  return document.documentElement.dataset.theme;
+  const theme = document.documentElement.dataset.theme;
+  assert.equal(chrome.content, theme === 'dark' ? '#17191c' : '#ffffff', 'Browser chrome follows the resolved theme');
+  assert.equal(scheme.content, theme);
+  assert.equal(document.documentElement.style.backgroundColor, chrome.content, 'Overscroll background matches browser chrome');
+  return theme;
 }
 assert.equal(bootstrap(null, false), 'light');
 assert.equal(bootstrap(null, true), 'dark');
@@ -99,5 +108,21 @@ const { doodleGapSeeds } = load('lib/doodle-cleanup.ts');
 assert.equal(Object.keys(doodleGapSeeds).length, 13);
 for (const points of Object.values(doodleGapSeeds)) for (const point of points) {
   assert.ok(point.length === 2 && point.every(value => value >= 0 && value < 1), 'Artwork seed is a normalized point');
+}
+// Every active illustration has a real, transparent, bounded-size PNG. These
+// are the files mobile browsers load instead of allocating live canvases.
+const { PNG } = require('pngjs');
+const { darkDoodles } = load('lib/dark-doodles.ts');
+assert.equal(Object.keys(darkDoodles).length, 14);
+for (const [source, destination] of Object.entries(darkDoodles)) {
+  assert.ok(fs.existsSync('public' + source));
+  const png = PNG.sync.read(fs.readFileSync('public' + destination));
+  assert.ok(Math.max(png.width, png.height) <= 1200);
+  let transparent = 0, opaque = 0;
+  for (let i = 3; i < png.data.length; i += 4) {
+    if (png.data[i] === 0) transparent++;
+    if (png.data[i] === 255) opaque++;
+  }
+  assert.ok(transparent > 0 && opaque > 0, destination + ' contains both cutout paper and preserved artwork');
 }
 console.log('Theme bootstrap and doodle paper-removal checks passed.');

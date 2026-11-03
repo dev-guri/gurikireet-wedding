@@ -8,7 +8,6 @@ import WeddingMotif from '@/components/home/WeddingMotif';
 import CopyHashtag from '@/components/home/CopyHashtag';
 import { functions, wedding, weddingDirectionsUrl } from '@/lib/constants';
 import { storyChapters } from '@/lib/story';
-import './home.css';
 
 export const metadata: Metadata = {
   title: { absolute: 'Gurinder & Gurpreet | 31 January 2027' },

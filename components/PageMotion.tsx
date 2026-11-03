@@ -1,11 +1,25 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
+import LoadingMark from './LoadingMark';
+import { applyTheme } from '@/lib/theme';
 import { usePathname } from 'next/navigation';
 
 export default function PageMotion() {
   const pathname = usePathname();
   const [navigating, setNavigating] = useState(false);
-  useEffect(() => { setNavigating(false); }, [pathname]);
+  useLayoutEffect(() => {
+    // Styles are in the root bundle. Keep the outgoing page covered until the
+    // newly committed route has had a layout frame, including back/forward.
+    let second = 0;
+    const first = requestAnimationFrame(() => {
+      second = requestAnimationFrame(() => {
+        delete document.documentElement.dataset.navigating;
+        setNavigating(false);
+        applyTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+      });
+    });
+    return () => { cancelAnimationFrame(first); cancelAnimationFrame(second); };
+  }, [pathname]);
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout> | undefined;
     const start = (event: MouseEvent) => {
@@ -14,17 +28,21 @@ export default function PageMotion() {
       if (!target || target.hasAttribute('download') || (target.target && target.target !== '_self')) return;
       const url = new URL(target.href, window.location.href);
       if (url.origin !== window.location.origin || url.pathname === window.location.pathname) return;
+      document.documentElement.dataset.navigating = 'true';
       setNavigating(true);
       // Clear the indicator if navigation is cancelled or fails before a route change.
       clearTimeout(timeout);
-      timeout = setTimeout(() => setNavigating(false), 15000);
+      timeout = setTimeout(() => { delete document.documentElement.dataset.navigating; setNavigating(false); }, 15000);
     };
-    const finish = () => setNavigating(false);
+    const finish = () => { delete document.documentElement.dataset.navigating; setNavigating(false); };
+    const back = () => { document.documentElement.dataset.navigating = 'true'; setNavigating(true); };
     document.addEventListener('click', start, true);
     window.addEventListener('pageshow', finish);
+    window.addEventListener('popstate', back);
     return () => {
       document.removeEventListener('click', start, true);
       window.removeEventListener('pageshow', finish);
+      window.removeEventListener('popstate', back);
       clearTimeout(timeout);
     };
   }, []);
@@ -63,5 +81,5 @@ export default function PageMotion() {
       cancelAnimationFrame(frame);
     };
   }, [pathname]);
-  return <><div className="reading-progress" aria-hidden="true" />{navigating && <div className="navigation-loading" role="status"><span className="sr-only">Loading page…</span><span className="navigation-loading-track" aria-hidden="true" /></div>}</>;
+  return <><div className="reading-progress" aria-hidden="true" /><div className="navigation-loading" aria-hidden={!navigating}><LoadingMark /></div></>;
 }

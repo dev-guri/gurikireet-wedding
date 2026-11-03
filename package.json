@@ -8,7 +8,8 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test:theme": "node scripts/check-theme.cjs",
-    "push": "bash scripts/push.sh"
+    "push": "bash scripts/push.sh",
+    "prepare:doodles": "node scripts/prepare-dark-doodles.cjs"
   },
   "dependencies": {
     "next": "^14.2.35",
@@ -20,6 +21,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.20",
+    "pngjs": "^7.0.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2"

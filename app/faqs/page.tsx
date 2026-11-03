@@ -4,7 +4,6 @@ import DoodleHeart from '@/components/DoodleHeart';
 import FaqAccordion from '@/components/FaqAccordion';
 import { faqGroups } from '@/lib/faqs';
 import { wedding } from '@/lib/constants';
-import './faqs.css';
 
 export const metadata: Metadata = {
   title: 'FAQs',

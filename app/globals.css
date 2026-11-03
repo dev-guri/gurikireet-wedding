@@ -91,7 +91,10 @@
 .couple-image{transition:filter .55s ease,opacity .35s ease}
 .art-loading .couple-image{opacity:0}
 .art-loaded .couple-image{opacity:1}
-.navigation-loading{position:fixed;top:0;left:0;right:0;height:3px;background:#f1ece2;overflow:hidden;z-index:80;pointer-events:none}
+.navigation-loading{display:none;position:fixed;inset:var(--header-offset) 0 0;background:var(--paper,#fff);z-index:45;align-items:center;justify-content:center}
+html[data-navigating] .navigation-loading{display:flex}
+html[data-navigating] #main{visibility:hidden}
+html[data-navigating] .site-footer{visibility:hidden}
 .navigation-loading-track{display:block;width:35%;height:100%;background:linear-gradient(90deg,#b49a55,#c84b4b);animation:navigation-progress 1s ease-in-out infinite}
 .title-heart,.home-heart{animation:heart-doodle 3.8s ease-in-out infinite,heart-float 6s ease-in-out infinite}
 .wardrobe-buttons button,.shade-dot,.button{transition:background .2s,color .2s,rotate .2s,scale .2s,box-shadow .2s}

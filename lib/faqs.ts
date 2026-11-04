@@ -1,4 +1,4 @@
-import { wedding, weddingDirectionsUrl } from './constants';
+import { wedding } from './constants';
 
 export type FaqItem = {
   id: string;
@@ -21,8 +21,8 @@ export const faqGroups: FaqGroup[] = [
     items: [
       { id: 'wedding-date', question: 'When is the wedding?', paragraphs: [`Our wedding is on ${weddingDate}. We can’t wait to celebrate with you!`] },
       { id: 'guest-arrival', question: 'What time should we arrive?', paragraphs: [`Please arrive at ${wedding.guestArrival} on ${weddingDate}.`] },
-      { id: 'wedding-venue', question: 'Where are we celebrating?', paragraphs: [`Join us at ${wedding.venue.name}, ${wedding.venue.city}.`, wedding.venue.address], link: { label: 'Get directions', href: weddingDirectionsUrl, external: true } },
-      { id: 'valet-parking', question: 'Is parking available at the venue?', paragraphs: [`Yes, valet parking will be available at ${wedding.venue.name}.`] },
+      { id: 'wedding-venue', question: 'Where are we celebrating?', paragraphs: ['Coming soon! We’ll share the venue and location details soon.'] },
+      { id: 'valet-parking', question: 'Is parking available at the venue?', paragraphs: ['Yes, valet parking will be available at the wedding venue. Venue details are coming soon.'] },
     ],
   },
   {

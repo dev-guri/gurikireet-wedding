@@ -11,7 +11,7 @@ html,body{background:var(--paper)}
 :root[data-theme='dark'] .theme-sun{opacity:1;transform:rotate(0) scale(1)}
 :root[data-theme='dark'] .theme-moon{opacity:0;transform:rotate(45deg) scale(.6)}
 :root[data-theme='dark'] ::selection{background:#764747;color:#fff}
-:root[data-theme='dark'] .site-header{background:#17191cf7;border-bottom-color:var(--border)}
+:root[data-theme='dark'] .site-header{background:var(--paper);border-bottom-color:var(--border)}
 :root[data-theme='dark'] :is(.skip-link,.menu-toggle,.landing-home){background:var(--paper);color:var(--ink)}
 :root[data-theme='dark'] .site-footer:before{color:var(--heart)}
 :root[data-theme='dark'] :is(.outfit-card,.landing-memory-card,.landing-function-card,.story-postcard){background:var(--surface);border-color:var(--border);box-shadow:var(--soft-shadow)}
@@ -64,3 +64,7 @@ html,body{background:var(--paper)}
  :root[data-theme='dark'] .navigation{background:var(--paper);border-color:var(--border);box-shadow:0 10px 25px #00000030}
 }
 @media(prefers-reduced-motion:reduce){.theme-toggle:hover{rotate:0deg}}
+
+/* Opaque top-edge paint for Safari's sampled status-bar background. */
+.browser-theme-surface{position:fixed;top:0;left:0;right:0;height:max(1px,env(safe-area-inset-top,0px));background:var(--paper);z-index:55;pointer-events:none}
+:root[data-theme='dark'] .brand-emblem{filter:drop-shadow(0 0 .8px #f0e7d8)}

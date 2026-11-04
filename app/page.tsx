@@ -6,12 +6,12 @@ import HomeArtwork from '@/components/home/HomeArtwork';
 import WeddingCountdown from '@/components/home/WeddingCountdown';
 import WeddingMotif from '@/components/home/WeddingMotif';
 import CopyHashtag from '@/components/home/CopyHashtag';
-import { functions, wedding, weddingDirectionsUrl } from '@/lib/constants';
+import { functions, wedding } from '@/lib/constants';
 import { storyChapters } from '@/lib/story';
 
 export const metadata: Metadata = {
   title: { absolute: 'Gurinder & Gurpreet | 31 January 2027' },
-  description: 'Celebrate Gurinder and Gurpreet’s wedding on 31 January 2027 at Majestic Crown, New Delhi. Our story, celebrations and dress code. #GuriKiReet',
+  description: 'Celebrate Gurinder and Gurpreet’s wedding on 31 January 2027. Our story, celebrations and dress code. #GuriKiReet',
 };
 const date = new Date(wedding.dayStartsAt);
 const dateLabel = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'long', year: 'numeric' }).format(date);
@@ -28,7 +28,7 @@ export default function Home() {
           <DoodleHeart className="landing-name-heart" />
         </div>
         <p className="landing-welcome">We’re getting married!<br />And we can’t wait to celebrate with you.</p>
-        <div className="landing-date-note"><time dateTime={wedding.date}>{dateLabel}</time><span>{wedding.venue.city} <i>·</i> {weekday}</span></div>
+        <div className="landing-date-note"><time dateTime={wedding.date}>{dateLabel}</time><span>{weekday}</span></div>
         <div className="landing-hero-actions"><Link className="button landing-primary-button" href="/our-story">Our little story ↗</Link><Link className="landing-text-link" href="/dress-code">Find your celebration look ↗</Link></div>
       </div>
       <div className="landing-hero-portrait hero-enter">
@@ -56,9 +56,9 @@ export default function Home() {
     </section>
 
     <section className="landing-venue" data-reveal aria-labelledby="landing-venue-title">
-      <div className="landing-venue-art"><WeddingMotif kind="venue" /><span className="landing-small-note">See you here!</span></div>
-      <div className="landing-venue-copy"><span className="landing-eyebrow">THE PLACE WE’LL MAKE NEW MEMORIES</span><h2 id="landing-venue-title">{wedding.venue.name}</h2><address>{wedding.venue.address}</address><p className="landing-venue-date">{weekday}, <time dateTime={wedding.date}>{dateLabel}</time></p></div>
-      <a className="button landing-directions" href={weddingDirectionsUrl} target="_blank" rel="noopener noreferrer" aria-label="Get directions to Majestic Crown in Google Maps, opens in a new tab">Get directions ↗</a>
+      <div className="landing-venue-art"><WeddingMotif kind="venue" /><span className="landing-small-note">a little surprise</span></div>
+      <div className="landing-venue-copy"><span className="landing-eyebrow">VENUE & LOCATION</span><h2 id="landing-venue-title">{wedding.venue.label}</h2><p>We’ll share the details soon. Stay tuned!</p><p className="landing-venue-date">{weekday}, <time dateTime={wedding.date}>{dateLabel}</time></p></div>
+
     </section>
 
     <section className="landing-share" data-reveal aria-labelledby="landing-share-title"><DoodleHeart /><h2 id="landing-share-title">A little tag for all our memories.</h2><Hashtag /><p>When the celebrations begin, share your favourite moments with our hashtag.</p><CopyHashtag hashtag={wedding.hashtag} /><span className="landing-sign-off">With love, Gurinder &amp; Gurpreet</span></section>

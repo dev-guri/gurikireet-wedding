@@ -7,8 +7,18 @@ export function applyTheme(theme: Theme) {
   root.dataset.theme = theme;
   root.style.backgroundColor = color;
   root.style.colorScheme = theme;
-  document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]').forEach(meta => { meta.content = color; });
-  document.querySelectorAll<HTMLMetaElement>('meta[name="color-scheme"]').forEach(meta => { meta.content = theme; });
+  if (document.body) {
+    document.body.style.backgroundColor = color;
+    document.body.style.colorScheme = theme;
+  }
+  document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]').forEach(meta => {
+    // Keep Next's managed node intact so hydration cannot create a second,
+    // stale theme-color tag. The opaque top-edge surface handles Safari tint.
+    if (meta.content !== color) meta.content = color;
+  });
+  document.querySelectorAll<HTMLMetaElement>('meta[name="color-scheme"]').forEach(meta => {
+    if (meta.content !== theme) meta.content = theme;
+  });
 }
 
 // Runs before the first paint so a saved dark preference never flashes white.
@@ -23,8 +33,14 @@ export const themeInitScript = `(()=>{
   document.documentElement.style.backgroundColor = color;
   document.documentElement.style.colorScheme = theme;
   const syncChrome = () => {
-    document.querySelectorAll('meta[name="theme-color"]').forEach(meta => { meta.content = color; });
-    document.querySelectorAll('meta[name="color-scheme"]').forEach(meta => { meta.content = theme; });
+    const current = document.documentElement.dataset.theme;
+    const background = current === 'dark' ? '#17191c' : '#ffffff';
+    if (document.body) {
+      document.body.style.backgroundColor = background;
+      document.body.style.colorScheme = current;
+    }
+    document.querySelectorAll('meta[name="theme-color"]').forEach(meta => { meta.content = background; });
+    document.querySelectorAll('meta[name="color-scheme"]').forEach(meta => { meta.content = current; });
   };
   syncChrome();
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', syncChrome, {once:true});

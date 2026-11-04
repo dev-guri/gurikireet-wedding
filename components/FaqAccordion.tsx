@@ -1,9 +1,19 @@
+'use client';
+
 import Link from 'next/link';
 import type { FaqItem } from '@/lib/faqs';
 import { functions } from '@/lib/constants';
 
 export default function FaqAccordion({ items, openFirst = false }: { items: FaqItem[]; openFirst?: boolean }) {
-  return <div className="faq-accordion">{items.map((item, index) => <details className="faq-item" key={item.id} id={item.id} open={openFirst && index === 0}>
+  return <div className="faq-accordion">{items.map((item, index) => <details className="faq-item" name="wedding-faq" key={item.id} id={item.id} open={openFirst && index === 0} onToggle={event => {
+    const current = event.currentTarget;
+    if (!current.open) return;
+    // Native name grouping handles current browsers. This also supports older
+    // Safari versions, across every topic on the FAQ page.
+    current.closest('.faq-groups')?.querySelectorAll<HTMLDetailsElement>('.faq-item[open]').forEach(other => {
+      if (other !== current) other.open = false;
+    });
+  }}>
     <summary className="faq-question"><span>{item.question}</span><svg className="faq-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" aria-hidden="true"><path d="M5 12h14" /><path className="faq-plus-vertical" d="M12 5v14" /></svg></summary>
     <div className="faq-answer">
       {item.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}

@@ -35,13 +35,13 @@ function resize(source, maxEdge) {
   }
   return target;
 }
-for (const name of [...Object.keys(doodleGapSeeds), 'gurkireet-rings.png']) {
+for (const name of Object.keys(doodleGapSeeds)) {
   const png = resize(PNG.sync.read(fs.readFileSync(path.join('public/images', name))), name === 'gurkireet-rings.png' ? 160 : 1200);
   removeDoodlePaper(png.data, png.width, png.height, doodleGapSeeds[name], doodleBottomCrops[name]);
   defringeDoodle(png.data, png.width, png.height);
   cleanDoodleHair(png.data, png.width, png.height, doodleHairZones[name]);
   // Versioned filenames prevent stale artwork after deployment.
-  const output = name.replace('.png', '-v1.png');
+  const output = name.replace('.png', name === 'gurkireet-rings.png' ? '-v2.png' : '-v1.png');
   fs.writeFileSync(path.join(directory, output), PNG.sync.write(png));
   mapping['/images/' + name] = '/images/dark/' + output;
   console.log(output);

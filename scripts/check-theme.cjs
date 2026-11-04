@@ -3,12 +3,12 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const ts = require('typescript');
 
-function load(file) {
+function load(file, globals = {}) {
   const module = { exports: {} };
   const code = ts.transpileModule(fs.readFileSync(file, 'utf8'), {
     compilerOptions: { module: ts.ModuleKind.CommonJS },
   }).outputText;
-  vm.runInNewContext(code, { module, exports: module.exports });
+  vm.runInNewContext(code, { module, exports: module.exports, ...globals });
   return module.exports;
 }
 
@@ -38,6 +38,22 @@ assert.equal(bootstrap('dark', false), 'dark');
 assert.equal(bootstrap('invalid', true), 'dark');
 assert.equal(bootstrap(null, true, true), 'dark');
 assert.equal(bootstrap(null, false, true), 'light');
+
+const browserMeta = { content: '#ffffff' };
+const schemeMeta = { content: 'light' };
+const themeDocument = {
+  documentElement: { dataset: {}, style: {} }, body: { style: {} },
+  querySelectorAll: selector => selector.includes('theme-color') ? [browserMeta] : [schemeMeta],
+};
+const { applyTheme } = load('lib/theme.ts', { document: themeDocument });
+for (const theme of ['dark', 'light', 'dark', 'light']) {
+  applyTheme(theme);
+  assert.equal(themeDocument.documentElement.dataset.theme, theme);
+  assert.equal(browserMeta.content, theme === 'dark' ? '#17191c' : '#ffffff');
+  assert.equal(schemeMeta.content, theme);
+  assert.equal(themeDocument.body.style.backgroundColor, browserMeta.content);
+  assert.equal(themeDocument.body.style.colorScheme, theme);
+}
 
 const { removeDoodlePaper, defringeDoodle, cleanDoodleHair } = load('lib/doodle-paper.ts');
 // A black closed contour surrounds a white center, like a face or white jeans.
@@ -105,7 +121,7 @@ assert.deepEqual(sample(15, 4), [60, 130, 210, 255], 'Colored fabric is unchange
 assert.deepEqual(sample(3, 9), [255, 255, 255, 255], 'White clothes outside hair zones are unchanged');
 
 const { doodleGapSeeds } = load('lib/doodle-cleanup.ts');
-assert.equal(Object.keys(doodleGapSeeds).length, 13);
+assert.equal(Object.keys(doodleGapSeeds).length, 14);
 for (const points of Object.values(doodleGapSeeds)) for (const point of points) {
   assert.ok(point.length === 2 && point.every(value => value >= 0 && value < 1), 'Artwork seed is a normalized point');
 }
@@ -124,5 +140,8 @@ for (const [source, destination] of Object.entries(darkDoodles)) {
     if (png.data[i] === 255) opaque++;
   }
   assert.ok(transparent > 0 && opaque > 0, destination + ' contains both cutout paper and preserved artwork');
+  if (source.endsWith('gurkireet-rings.png')) for (const [x, y] of doodleGapSeeds['gurkireet-rings.png']) {
+    assert.equal(png.data[(Math.floor(y * png.height) * png.width + Math.floor(x * png.width)) * 4 + 3], 0, 'Each ring hole is transparent');
+  }
 }
 console.log('Theme bootstrap and doodle paper-removal checks passed.');

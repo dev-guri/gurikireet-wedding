@@ -22,9 +22,15 @@ export default function ThemeToggle() {
     };
     media.addEventListener('change', syncPreference);
     window.addEventListener('storage', onStorage);
+    window.addEventListener('pageshow', syncPreference);
+    const syncChrome = () => applyTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+    const observer = new MutationObserver(syncChrome);
+    observer.observe(document.head, { childList: true, subtree: true, attributes: true, attributeFilter: ['content'] });
     return () => {
       media.removeEventListener('change', syncPreference);
       window.removeEventListener('storage', onStorage);
+      window.removeEventListener('pageshow', syncPreference);
+      observer.disconnect();
     };
   }, []);
 

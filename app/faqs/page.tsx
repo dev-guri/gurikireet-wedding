@@ -7,7 +7,7 @@ import { wedding } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'FAQs',
-  description: 'Your questions about Gurinder and Gurpreet’s wedding: the date, venue, directions, celebration outfits and #GuriKiReet.',
+  description: 'Your questions about Gurinder and Gurpreet’s wedding: the date, celebration outfits and #GuriKiReet.',
 };
 
 const dateLabel = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(wedding.dayStartsAt));
@@ -25,7 +25,7 @@ export default function FaqPage() {
       <aside className="faq-sidebar" aria-label="FAQ topics">
         <span className="faq-index-heading">Wondering about…</span>
         <nav className="faq-topic-nav" aria-label="Jump to a question topic">{faqGroups.map((group, index) => <a href={`#${group.id}`} key={group.id}><span>{String(index + 1).padStart(2, '0')}</span>{group.label}<i aria-hidden="true">↘</i></a>)}</nav>
-        <div className="faq-date-note"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 12h30v28H9zM9 21h30M16 8v8M32 8v8M16 28h4m8 0h4m-16 6h4" /><path d="M28 32c-5-5-7 2 0 6 7-6 5-10 0-6z" stroke="var(--heart)" /></svg><time dateTime={wedding.date}>{dateLabel}</time><span>Guests arrive at {wedding.guestArrival}</span><span>{wedding.venue.name}, {wedding.venue.city}</span><span className="faq-date-signature">a date to remember</span></div>
+        <div className="faq-date-note"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 12h30v28H9zM9 21h30M16 8v8M32 8v8M16 28h4m8 0h4m-16 6h4" /><path d="M28 32c-5-5-7 2 0 6 7-6 5-10 0-6z" stroke="var(--heart)" /></svg><time dateTime={wedding.date}>{dateLabel}</time><span>Guests arrive at {wedding.guestArrival}</span><span>Venue & location: {wedding.venue.label}</span><span className="faq-date-signature">a date to remember</span></div>
       </aside>
 
       <div className="faq-groups">{faqGroups.map((group, index) => <section className="faq-group" id={group.id} key={group.id} aria-labelledby={`${group.id}-title`} data-reveal>

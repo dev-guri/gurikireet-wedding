@@ -36,6 +36,8 @@ export const doodleBottomCrops: Record<string, number> = {
 // cannot be reached from the image border, while leaving faces, teeth, white
 // clothes and embroidery opaque. Review these points when replacing an asset.
 export const doodleGapSeeds: Record<string, readonly DoodlePoint[]> = {
+  // The three enclosed holes are paper too, not part of the rings.
+  'gurkireet-rings.png': [[.28, .49], [.5, .5], [.72, .48]],
   'home-wedding-lehenga-sherwani.png': [
     [0.537117,0.120321], [0.587917,0.134921], [0.501217,0.157821], [0.662117,0.179721],
     [0.622917,0.194321], [0.287917,0.197421], [0.475417,0.210921], [0.675417,0.224521],

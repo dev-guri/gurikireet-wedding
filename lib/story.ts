@@ -1,10 +1,10 @@
 export type StoryPhoto = { src: string | null; alt: string; caption: string };
 export type StoryPhotoKey = 'firstMeeting' | 'roka' | 'favourite';
-export type StoryDoodleKind = 'hello' | 'coffee' | 'meal' | 'rings' | 'flower';
+export type StoryDoodleKind = 'hello' | 'meal' | 'rings' | 'flower';
 export type StoryIllustration = { src: string; alt: string };
 
 export const storyIllustration = {
-  src: '/images/gurinder-gurpreet-story-doodle-v3.png',
+  src: '/images/doodles/gurinder-gurpreet-story-doodle-v3.webp',
   alt: 'A playful cartoon doodle of Gurinder in his turban and Gurpreet smiling at each other, inspired by their photograph',
 };
 
@@ -58,7 +58,7 @@ export const storyChapters: StoryChapter[] = [
     aside: 'every story starts somewhere',
     doodle: 'hello',
     illustration: {
-      src: '/images/our-story-first-hello-doodle.png',
+      src: '/images/doodles/our-story-first-hello-doodle.webp',
       alt: 'A playful WhatsApp-inspired phone doodle with Hi and Hello bubbles, a turbaned Gurinder avatar, and a Gurpreet avatar',
     },
     caption: 'One small hello. So much still to come.',
@@ -77,7 +77,7 @@ export const storyChapters: StoryChapter[] = [
     doodle: 'meal',
     photo: 'firstMeeting',
     illustration: {
-      src: '/images/our-story-first-meeting-doodle-v3.png',
+      src: '/images/doodles/our-story-first-meeting-doodle-v3.webp',
       alt: 'Gurinder in a blue polo, white jeans and cream turban with Gurpreet in her blue-floral dress, sharing a café table with white sauce pasta, chilli garlic noodles and a Belgian chocolate shake',
     },
     caption: 'Our first meeting. A memory we still smile about.',
@@ -96,7 +96,7 @@ export const storyChapters: StoryChapter[] = [
     doodle: 'rings',
     photo: 'roka',
     illustration: {
-      src: '/images/our-story-roka-doodle.png',
+      src: '/images/doodles/our-story-roka-doodle.webp',
       alt: 'A roka doodle of Gurinder in an ivory outfit and blue turban beside Gurpreet in her ivory embroidered outfit and turquoise dupatta',
     },
     caption: 'A new chapter, with all our favourite people.',

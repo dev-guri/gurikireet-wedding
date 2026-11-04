@@ -6,9 +6,15 @@ export default function WeddingCountdown({ target }: { target: string }) {
   const [time, setTime] = useState<ReturnType<typeof getCountdown> | null>(null);
   useEffect(() => {
     const update = () => setTime(getCountdown(target));
-    update();
-    const timer = setInterval(update, 1000);
-    return () => clearInterval(timer);
+    let timer: ReturnType<typeof setInterval> | undefined;
+    const syncVisibility = () => {
+      clearInterval(timer);
+      update();
+      if (!document.hidden) timer = setInterval(update, 1000);
+    };
+    syncVisibility();
+    document.addEventListener('visibilitychange', syncVisibility);
+    return () => { clearInterval(timer); document.removeEventListener('visibilitychange', syncVisibility); };
   }, [target]);
   if (time?.finished) return <p className="landing-countdown-complete">The next chapter begins. ♡</p>;
   const units = ['days', 'hours', 'minutes', 'seconds'] as const;

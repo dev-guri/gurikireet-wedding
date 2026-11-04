@@ -26,9 +26,9 @@ function bootstrap(saved, dark, blocked = false) {
     window: { matchMedia() { return { matches: dark }; } },
   });
   const theme = document.documentElement.dataset.theme;
-  assert.equal(chrome.content, theme === 'dark' ? '#17191c' : '#ffffff', 'Browser chrome follows the resolved theme');
-  assert.equal(scheme.content, theme);
-  assert.equal(document.documentElement.style.backgroundColor, chrome.content, 'Overscroll background matches browser chrome');
+  assert.equal(document.documentElement.style.backgroundColor, theme === 'dark' ? '#17191c' : '#ffffff', 'First paint and overscroll use the resolved theme');
+  assert.equal(chrome.content, '#ffffff', 'Bootstrap leaves Next metadata intact until hydration');
+  assert.equal(scheme.content, 'light dark');
   return theme;
 }
 assert.equal(bootstrap(null, false), 'light');
@@ -55,7 +55,7 @@ for (const theme of ['dark', 'light', 'dark', 'light']) {
   assert.equal(themeDocument.body.style.colorScheme, theme);
 }
 
-const { removeDoodlePaper, defringeDoodle, cleanDoodleHair } = load('lib/doodle-paper.ts');
+const { removeDoodlePaper, defringeDoodle, cleanDoodleHair } = load('artwork/doodle-paper.ts');
 // A black closed contour surrounds a white center, like a face or white jeans.
 const pixels = new Uint8ClampedArray(7 * 7 * 4).fill(255);
 const paint = (x, y, rgb) => pixels.set([...rgb, 255], (y * 7 + x) * 4);
@@ -120,28 +120,33 @@ assert.deepEqual(sample(10, 4), [255, 255, 255, 255], 'Protected face highlight 
 assert.deepEqual(sample(15, 4), [60, 130, 210, 255], 'Colored fabric is unchanged');
 assert.deepEqual(sample(3, 9), [255, 255, 255, 255], 'White clothes outside hair zones are unchanged');
 
-const { doodleGapSeeds } = load('lib/doodle-cleanup.ts');
+const { doodleGapSeeds } = load('artwork/doodle-cleanup.ts');
 assert.equal(Object.keys(doodleGapSeeds).length, 14);
 for (const points of Object.values(doodleGapSeeds)) for (const point of points) {
   assert.ok(point.length === 2 && point.every(value => value >= 0 && value < 1), 'Artwork seed is a normalized point');
 }
-// Every active illustration has a real, transparent, bounded-size PNG. These
-// are the files mobile browsers load instead of allocating live canvases.
-const { PNG } = require('pngjs');
-const { darkDoodles } = load('lib/dark-doodles.ts');
-assert.equal(Object.keys(darkDoodles).length, 14);
-for (const [source, destination] of Object.entries(darkDoodles)) {
-  assert.ok(fs.existsSync('public' + source));
-  const png = PNG.sync.read(fs.readFileSync('public' + destination));
-  assert.ok(Math.max(png.width, png.height) <= 1200);
-  let transparent = 0, opaque = 0;
-  for (let i = 3; i < png.data.length; i += 4) {
-    if (png.data[i] === 0) transparent++;
-    if (png.data[i] === 255) opaque++;
+// Validate the actual compressed assets, including transparent ring holes.
+// Artwork preparation is build-time only; no browser pixel processing remains.
+const sharp = require('sharp');
+const protectedRegions = require('../artwork/protected-regions.json');
+(async () => {
+  for (const source of Object.keys(doodleGapSeeds)) {
+    assert.ok(fs.existsSync('artwork/sources/' + source));
+    const destination = 'public/images/doodles/' + source.replace('.png', '.webp');
+    const { data, info } = await sharp(destination).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+    assert.ok(Math.max(info.width, info.height) <= 1200);
+    let transparent = 0, opaque = 0;
+    for (let i = 3; i < data.length; i += 4) {
+      if (data[i] === 0) transparent++;
+      if (data[i] === 255) opaque++;
+    }
+    assert.ok(transparent > 0 && opaque > 0, destination + ' preserves both cutout paper and opaque artwork');
+    for (const [x, y] of protectedRegions[source] ?? []) {
+      assert.equal(data[(Math.floor(y * info.height) * info.width + Math.floor(x * info.width)) * 4 + 3], 255, destination + ' keeps reviewed faces and white garments opaque');
+    }
+    if (source === 'gurkireet-rings.png') for (const [x, y] of doodleGapSeeds[source]) {
+      assert.equal(data[(Math.floor(y * info.height) * info.width + Math.floor(x * info.width)) * 4 + 3], 0, 'Each ring hole is transparent');
+    }
   }
-  assert.ok(transparent > 0 && opaque > 0, destination + ' contains both cutout paper and preserved artwork');
-  if (source.endsWith('gurkireet-rings.png')) for (const [x, y] of doodleGapSeeds['gurkireet-rings.png']) {
-    assert.equal(png.data[(Math.floor(y * png.height) * png.width + Math.floor(x * png.width)) * 4 + 3], 0, 'Each ring hole is transparent');
-  }
-}
-console.log('Theme bootstrap and doodle paper-removal checks passed.');
+  console.log('Theme bootstrap, artwork cleanup and compressed asset checks passed.');
+})().catch(error => { console.error(error); process.exitCode = 1; });

@@ -36,26 +36,16 @@ html,body{background:var(--paper)}
 :root[data-theme='dark'] .landing-function-haldi:hover{border-color:#7faacf}
 :root[data-theme='dark'] .landing-function-mehndi:hover{border-color:#eb8850}
 /* Supporting handwritten copy is readable on both paper and card surfaces. */
-:root[data-theme='dark'] :is(.eyebrow,.couple-byline,.card-heading p,.selection-label,.closing-note p,.footer-links,.site-footer>p:not(.footer-names),.hero-description,.home-bottom-note,.story-hero-intro,.story-opening p,.story-chapter-copy>p,.story-postcard figcaption,.story-everyday-heading p,.story-small-note p,.story-next-chapter>p,.landing-story-copy>p,.landing-venue-copy address){color:var(--muted)}
+:root[data-theme='dark'] :is(.eyebrow,.couple-byline,.card-heading p,.selection-label,.closing-note p,.footer-links,.site-footer>p,.story-hero-intro,.story-opening p,.story-chapter-copy>p,.story-postcard figcaption,.story-everyday-heading p,.story-small-note p,.story-next-chapter>p,.landing-story-copy>p,.landing-venue-copy address){color:var(--muted)}
 :root[data-theme='dark'] :is(.event-nav a>span,.coming-soon>p,.story-kicker,.story-scroll-link,.story-picture-note,.story-chapter-meta,.story-little-star,.story-small-note>span,.landing-eyebrow,.landing-small-note,.landing-portrait-note,.landing-memory-card figcaption,.landing-mini-timeline time,.landing-function-number,.landing-venue-date,.landing-copy-message,.landing-sign-off){color:var(--accent)}
 :root[data-theme='dark'] .footer-links a:hover{color:var(--heart)}
 :root[data-theme='dark'] .story-margin-note{color:var(--heart)}
 :root[data-theme='dark'] .story-doodle{color:var(--ink)}
 :root[data-theme='dark'] .loading-mark{color:var(--accent)}
 :root[data-theme='dark'] .navigation-loading{background:var(--paper)}
-/* Original colors, black hair and white garments are preserved. Only the
-   connected exterior paper is removed in the dark-mode canvas layer. */
-.doodle-cutout{display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}
-:root[data-theme='dark'] .doodle-original.has-cutout{opacity:0!important;pointer-events:none}
-:root[data-theme='dark'] .doodle-cutout.is-prepared{display:block}
-:root[data-theme='dark'] .brand-emblem.doodle-cutout{filter:drop-shadow(0 0 .8px #f0e7d8)}
 :root[data-theme='dark'] .illustrated-memory .story-postcard-picture{background:transparent}
 :root[data-theme='dark'] .art-placeholder{background:linear-gradient(100deg,var(--paper) 25%,var(--surface) 48%,var(--paper) 72%);background-size:240% 100%}
-.brand-emblem.doodle-cutout{inset:auto;width:49px;height:49px}
 .wedding-brand{position:relative}
-.wedding-brand.small .doodle-cutout{top:0;left:50%;transform:translateX(-50%)}
-.site-header .brand-emblem.doodle-cutout{width:36px;height:36px;left:0}
-@media(max-width:767px){.brand-emblem.doodle-cutout{width:44px;height:44px}.site-header .brand-emblem.doodle-cutout{width:32px;height:32px}}
 :root[data-theme='dark'] .story-paper-tape{opacity:.3}
 :root[data-theme='dark'] .landing-tape{opacity:.55}
 @media(max-width:767px){

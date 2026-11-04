@@ -7,7 +7,6 @@ export const wedding = {
   // Venue details stay unpublished until the invitations are shared.
   venue: { status: 'coming-soon', label: 'Coming soon' },
 };
-export const colors = { white: '#FFFFFF', gold: '#D4AF37', heart: '#C84B4B', border: '#E8E0D5' };
 export const navigation = [
   { label: 'Home', href: '/' }, { label: 'Dress Code', href: '/dress-code' },
   { label: 'Our Story', href: '/our-story' }, { label: 'Events', href: '/events' },
@@ -26,17 +25,16 @@ export const functions: WeddingFunction[] = [
   { id: 'jaggo', number: '04', title: 'Jaggo', subtitle: 'Any color of your choice', marginNote: 'let’s light up the night', panel: 3 },
 ];
 export const images = {
-  outfitSheet: '/images/couple-outfits.png',
-  outfits: ['/images/western-ink.png', '/images/haldi-ink.png', '/images/mehndi-orange-ink.png', '/images/jaggo-ink.png'],
+  outfits: ['/images/doodles/western-ink.webp', '/images/doodles/haldi-ink.webp', '/images/doodles/mehndi-orange-ink.webp'],
 };
 export const jaggoOutfits = {
   him: [
-    { id: 'kurta-pyjama', label: 'Kurta Pyjama', image: '/images/jaggo-him-kurta.png' },
-    { id: 'pathani', label: 'Pathani', image: '/images/jaggo-him-pathani.png' },
+    { id: 'kurta-pyjama', label: 'Kurta Pyjama', image: '/images/doodles/jaggo-him-kurta.webp' },
+    { id: 'pathani', label: 'Pathani', image: '/images/doodles/jaggo-him-pathani.webp' },
   ],
   her: [
-    { id: 'patiala-suit', label: 'Patiala Suit', image: '/images/jaggo-her-patiala.png' },
-    { id: 'sharara', label: 'Sharara', image: '/images/jaggo-her-sharara-v2.png' },
-    { id: 'garara', label: 'Garara', image: '/images/jaggo-her-garara-v2.png' },
+    { id: 'patiala-suit', label: 'Patiala Suit', image: '/images/doodles/jaggo-her-patiala.webp' },
+    { id: 'sharara', label: 'Sharara', image: '/images/doodles/jaggo-her-sharara-v2.webp' },
+    { id: 'garara', label: 'Garara', image: '/images/doodles/jaggo-her-garara-v2.webp' },
   ],
 };

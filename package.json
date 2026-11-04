@@ -9,22 +9,27 @@
     "typecheck": "tsc --noEmit",
     "test:theme": "node scripts/check-theme.cjs",
     "push": "bash scripts/push.sh",
-    "prepare:doodles": "node scripts/prepare-dark-doodles.cjs"
+    "prepare:assets": "node scripts/prepare-assets.cjs",
+    "test:assets": "node scripts/check-assets.cjs"
   },
   "dependencies": {
-    "next": "^14.2.35",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "next": "16.4.5",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "autoprefixer": "^10.4.20",
-    "pngjs": "^7.0.0",
     "postcss": "^8.4.49",
+    "sharp": "^0.35.5",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "wawoff2": "^2.0.1"
   },
-  "packageManager": "yarn@3.6.4+sha512.e70835d4d6d62c07be76b3c1529cb640c7443f0fe434ef4b6478a5a399218cbaf1511b396b3c56eb03bc86424cff2320f6167ad2fde273aa0df6e60b7754029f"
+  "packageManager": "yarn@3.6.4+sha512.e70835d4d6d62c07be76b3c1529cb640c7443f0fe434ef4b6478a5a399218cbaf1511b396b3c56eb03bc86424cff2320f6167ad2fde273aa0df6e60b7754029f",
+  "engines": {
+    "node": ">=20.9.0"
+  }
 }

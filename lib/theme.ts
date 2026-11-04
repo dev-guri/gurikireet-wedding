@@ -32,16 +32,6 @@ export const themeInitScript = `(()=>{
   const color = theme === 'dark' ? '#17191c' : '#ffffff';
   document.documentElement.style.backgroundColor = color;
   document.documentElement.style.colorScheme = theme;
-  const syncChrome = () => {
-    const current = document.documentElement.dataset.theme;
-    const background = current === 'dark' ? '#17191c' : '#ffffff';
-    if (document.body) {
-      document.body.style.backgroundColor = background;
-      document.body.style.colorScheme = current;
-    }
-    document.querySelectorAll('meta[name="theme-color"]').forEach(meta => { meta.content = background; });
-    document.querySelectorAll('meta[name="color-scheme"]').forEach(meta => { meta.content = current; });
-  };
-  syncChrome();
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', syncChrome, {once:true});
+  // Metadata is synchronized after hydration by ThemeToggle. Mutating Next's
+  // server-rendered meta contents here can make React duplicate those tags.
 })();`;

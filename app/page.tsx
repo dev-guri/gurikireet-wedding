@@ -32,7 +32,7 @@ export default function Home() {
         <div className="landing-hero-actions"><Link className="button landing-primary-button" href="/our-story">Our little story ↗</Link><Link className="landing-text-link" href="/dress-code">Find your celebration look ↗</Link></div>
       </div>
       <div className="landing-hero-portrait hero-enter">
-        <HomeArtwork src="/images/home-wedding-lehenga-sherwani.png" alt="A wedding doodle of Gurinder in an ivory and gold sherwani with a champagne turban, holding hands with Gurpreet in a burgundy and gold lehenga" priority />
+        <HomeArtwork src="/images/doodles/home-wedding-lehenga-sherwani.webp" alt="A wedding doodle of Gurinder in an ivory and gold sherwani with a champagne turban, holding hands with Gurpreet in a burgundy and gold lehenga" priority />
         <span className="landing-portrait-note">our kind of forever<svg viewBox="0 0 95 45" aria-hidden="true"><path d="M89 36Q70 3 16 15m10-12L15 15l16 4" /></svg></span>
       </div>
     </section>
@@ -43,7 +43,7 @@ export default function Home() {
     </section>
 
     <section className="landing-story" data-reveal aria-labelledby="landing-story-title">
-      <figure className="landing-memory-card"><span className="landing-tape" aria-hidden="true" /><HomeArtwork src="/images/our-story-first-meeting-doodle-v3.png" alt="Our first-meeting café doodle, with blue outfits, white jeans, pasta, noodles and a chocolate shake" /><figcaption>Where our favourite story began.</figcaption></figure>
+      <figure className="landing-memory-card"><span className="landing-tape" aria-hidden="true" /><HomeArtwork src="/images/doodles/our-story-first-meeting-doodle-v3.webp" alt="Our first-meeting café doodle, with blue outfits, white jeans, pasta, noodles and a chocolate shake" /><figcaption>Where our favourite story began.</figcaption></figure>
       <div className="landing-story-copy"><span className="landing-eyebrow">A FEW MOMENTS THAT MEAN EVERYTHING</span><h2 id="landing-story-title">From a little hello<br />to all of this.</h2><p>A first conversation, a meeting in Connaught Place, and a roka surrounded by family. The little moments brought us here — ready for the next chapter, together.</p>
         <ol className="landing-mini-timeline">{storyChapters.map((chapter, index) => <li key={chapter.id}><span className="landing-moment-dot" aria-hidden="true" /><time dateTime={chapter.date}>{new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'short' }).format(new Date(`${chapter.date}T00:00:00+05:30`))}</time><span>{momentNames[index]}</span></li>)}</ol>
         <Link className="landing-text-link" href="/our-story">Read our story ↗</Link>

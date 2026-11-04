@@ -35,7 +35,15 @@ export default function PageMotion() {
       timeout = setTimeout(() => { delete document.documentElement.dataset.navigating; setNavigating(false); }, 15000);
     };
     const finish = () => { delete document.documentElement.dataset.navigating; setNavigating(false); };
-    const back = () => { document.documentElement.dataset.navigating = 'true'; setNavigating(true); };
+    const back = () => {
+      // A hash-only history entry does not change pathname, so no route-ready
+      // effect would dismiss the overlay. Native scrolling needs no loader.
+      if (window.location.pathname === pathname) return;
+      document.documentElement.dataset.navigating = 'true';
+      setNavigating(true);
+      clearTimeout(timeout);
+      timeout = setTimeout(finish, 15000);
+    };
     document.addEventListener('click', start, true);
     window.addEventListener('pageshow', finish);
     window.addEventListener('popstate', back);
@@ -45,25 +53,44 @@ export default function PageMotion() {
       window.removeEventListener('popstate', back);
       clearTimeout(timeout);
     };
-  }, []);
+  }, [pathname]);
   useEffect(() => {
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const reduced = motion.matches;
     const elements = document.querySelectorAll<HTMLElement>('[data-reveal]');
     let observer: IntersectionObserver | undefined;
-    if (!reduced && 'IntersectionObserver' in window) {
+    const reveals = new Map<Element, Animation>();
+    if (!reduced && 'IntersectionObserver' in window && 'animate' in HTMLElement.prototype) {
       observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            reveals.get(entry.target)?.play();
             observer?.unobserve(entry.target);
           }
         });
       }, { threshold: .08 });
       elements.forEach(element => {
-        if (element.getBoundingClientRect().top > window.innerHeight) element.classList.add('reveal-pending');
+        if (element.getBoundingClientRect().top <= window.innerHeight) return;
+        // Animate computed presentation without changing server-rendered class
+        // attributes while React 19 is still hydrating nested route segments.
+        const animation = element.animate([
+          { opacity: 0, transform: 'translateY(28px) rotate(-.6deg)' },
+          { opacity: 1, transform: 'translateY(0) rotate(0)' },
+        ], { duration: 800, easing: 'ease-out', fill: 'backwards' });
+        animation.pause();
+        animation.currentTime = 0;
+        animation.onfinish = () => { animation.cancel(); reveals.delete(element); };
+        reveals.set(element, animation);
         observer?.observe(element);
       });
     }
+    const stopReveals = () => {
+      observer?.disconnect();
+      reveals.forEach(animation => animation.cancel());
+      reveals.clear();
+    };
+    const onMotionChange = () => { if (motion.matches) stopReveals(); };
+    motion.addEventListener('change', onMotionChange);
     let frame = 0;
     const update = () => {
       const height = document.documentElement.scrollHeight - window.innerHeight;
@@ -75,7 +102,8 @@ export default function PageMotion() {
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     return () => {
-      observer?.disconnect();
+      stopReveals();
+      motion.removeEventListener('change', onMotionChange);
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
       cancelAnimationFrame(frame);

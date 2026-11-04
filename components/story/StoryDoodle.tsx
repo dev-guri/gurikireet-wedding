@@ -9,14 +9,6 @@ export default function StoryDoodle({ kind }: { kind: StoryDoodleKind }) {
       <path d="M188 47C173 30 175 20 183 21C190 22 190 31 190 33C197 17 208 18 207 27C207 36 192 47 188 47Z" stroke="#C84B4B" />
       <path d="M36 151L41 141L45 152L56 155L45 158L41 169L37 158L28 155Z" stroke="#B49A55" strokeWidth="1.4" />
     </g>}
-    {kind === 'coffee' && <g stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M35 94L42 147C49 163 92 162 100 147L105 94M35 94C43 86 96 85 105 94C98 104 45 104 35 94Z" />
-      <path d="M105 107C136 96 133 143 102 139M25 167C41 179 101 179 116 165M55 70C42 57 69 49 56 35M77 69C64 56 90 45 78 31" />
-      <path d="M148 105L154 150C162 165 203 166 210 151L215 105M148 105C157 97 206 97 215 105C204 114 157 114 148 105Z" />
-      <path d="M215 116C244 108 241 147 212 143M138 175C155 184 211 185 226 173M170 83C157 69 181 62 170 48M190 82C177 69 202 59 191 45" />
-      <path d="M126 57C116 45 118 38 123 39C129 39 129 47 129 47C135 34 142 36 141 42C140 48 130 56 126 57Z" stroke="#C84B4B" />
-      <path d="M36 94C45 91 92 90 104 94M149 105C162 101 200 102 214 105" stroke="#B49A55" />
-    </g>}
     {kind === 'meal' && <g stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <ellipse cx="75" cy="133" rx="49" ry="17" /><path d="M28 137C32 169 116 169 122 137M45 126L56 118L63 124L52 133ZM66 123L77 115L83 121L72 130ZM85 128L97 119L104 125L91 136" />
       <ellipse cx="180" cy="143" rx="49" ry="17" /><path d="M134 147C142 177 216 177 227 147M151 139C165 124 178 151 197 135M154 145C171 130 182 152 209 140M163 132C181 119 196 140 211 131" />
